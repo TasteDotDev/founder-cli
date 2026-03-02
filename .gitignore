@@ -1,0 +1,7 @@
+.DS_Store
+node_modules/
+dist/
+bin/
+skills/
+src/skills/bundled-data.json
+*.bun-build

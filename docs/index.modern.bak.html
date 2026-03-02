@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Founder — Business frameworks that ship decisions</title>
+  <meta name="description" content="530 business frameworks, any LLM. Web research, repo context, and memory — in your terminal.">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#0b0b0d">
+  <meta property="og:title" content="Founder — Business frameworks that ship decisions">
+  <meta property="og:description" content="530 business frameworks, any LLM. Web research, repo context, and memory — in your terminal.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%2310a37f'/%3E%3Cstop offset='1' stop-color='%230a84ff'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='6' y='6' width='52' height='52' rx='14' fill='%230b0b0d' stroke='rgba(255,255,255,0.18)'/%3E%3Cpath d='M22 44V20h14a8 8 0 0 1 0 16H26v8h-4zm4-12h10a4 4 0 0 0 0-8H26v8z' fill='url(%23g)'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0b0b0d;
+      --bg2: #070708;
+      --surface: rgba(255,255,255,0.04);
+      --surface2: rgba(255,255,255,0.06);
+      --border: rgba(255,255,255,0.08);
+      --border-light: rgba(255,255,255,0.14);
+      --text: rgba(255,255,255,0.92);
+      --text-secondary: rgba(255,255,255,0.68);
+      --text-tertiary: rgba(255,255,255,0.44);
+      --accent: #10a37f;
+      --accent2: #0a84ff;
+      --blue: #60a5fa;
+      --green: #4ade80;
+      --purple: #c084fc;
+      --orange: #fbbf24;
+      --pink: #f472b6;
+      --container: 1080px;
+      --radius-lg: 18px;
+      --radius: 14px;
+      --radius-sm: 10px;
+      --shadow: 0 24px 80px rgba(0,0,0,0.55);
+      --shadow-soft: 0 10px 40px rgba(0,0,0,0.35);
+      --ring: rgba(10,132,255,0.45);
+      --font: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', sans-serif;
+      --mono: ui-monospace, 'SF Mono', 'JetBrains Mono', monospace;
+    }
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;scroll-padding-top:88px}
+    body{
+      font-family:var(--font);
+      background:
+        radial-gradient(1200px 600px at 50% -10%, rgba(16,163,127,0.12), transparent 55%),
+        radial-gradient(1000px 520px at 80% 0%, rgba(10,132,255,0.10), transparent 60%),
+        radial-gradient(900px 520px at 15% 10%, rgba(255,255,255,0.05), transparent 55%),
+        linear-gradient(var(--bg), var(--bg2));
+      color:var(--text);
+      overflow-x:hidden;
+    }
+    a{color:var(--blue);text-decoration:none}
+    a:hover{text-decoration:underline}
+    a.btn,a.btn:hover,a.nav-cta,a.nav-cta:hover{text-decoration:none}
+    ::selection{background:rgba(16,163,127,0.22)}
+    :focus-visible{outline:2px solid var(--ring);outline-offset:3px;border-radius:8px}
+
+    .skip-link{
+      position:absolute;left:-999px;top:10px;
+      background:#fff;color:#000;
+      padding:0.55rem 0.8rem;
+      border-radius:10px;
+      font-weight:700;font-size:0.85rem;
+      z-index:999;
+    }
+    .skip-link:focus{left:14px}
+
+    /* Nav */
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(11,11,13,0.72);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid var(--border)}
+    .nav-inner{max-width:var(--container);margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px;padding:0 1.25rem}
+    .nav-logo{font-size:0.95rem;font-weight:750;color:var(--text);display:flex;align-items:center;gap:0.55rem;letter-spacing:-0.02em}
+    .nav-logo:hover{text-decoration:none}
+    .logo-mark{width:22px;height:22px;border-radius:7px;background:linear-gradient(135deg, rgba(16,163,127,1), rgba(10,132,255,1));box-shadow:0 8px 24px rgba(16,163,127,0.18)}
+    .nav-links{display:flex;gap:2rem;align-items:center}
+    .nav-links a{color:var(--text-secondary);font-size:0.82rem;font-weight:600;transition:color 0.15s}
+    .nav-links a:hover{color:var(--text);text-decoration:none}
+    .nav-links a.nav-cta{background:rgba(255,255,255,0.92);color:#000;font-size:0.78rem;font-weight:800;padding:0.5rem 1rem;border-radius:999px;transition:transform 0.15s, background 0.15s, box-shadow 0.15s;box-shadow:0 10px 30px rgba(0,0,0,0.30)}
+    .nav-links a.nav-cta:hover{background:#fff;color:#000;text-decoration:none;transform:translateY(-1px);box-shadow:0 16px 44px rgba(0,0,0,0.38)}
+
+    .wrap{max-width:var(--container);margin:0 auto;padding:0 1.25rem}
+    section{padding:5.5rem 0}
+
+    /* ===== HERO ===== */
+    .hero{padding:8.5rem 1.25rem 0;text-align:center;position:relative}
+    .hero::after{content:'';position:absolute;top:-80px;left:50%;transform:translateX(-50%);width:980px;height:620px;background:radial-gradient(ellipse at center,rgba(255,255,255,0.06) 0%,transparent 62%);pointer-events:none;filter:blur(2px)}
+    .hero-kicker{display:inline-flex;align-items:center;gap:0.5rem;padding:0.35rem 0.75rem;border-radius:999px;background:rgba(255,255,255,0.04);border:1px solid var(--border);color:var(--text-secondary);font-size:0.8rem;font-weight:650;letter-spacing:-0.01em}
+    .hero-kicker b{color:var(--text);font-weight:800}
+    .hero h1{font-size:clamp(2.7rem,6.4vw,4.6rem);font-weight:820;line-height:1.06;letter-spacing:-0.05em;max-width:860px;margin:1.25rem auto 1.25rem}
+    .hero-sub{font-size:1.06rem;color:var(--text-secondary);max-width:640px;margin:0 auto 2.25rem;line-height:1.65}
+    .hero-actions{display:flex;gap:0.75rem;justify-content:center;margin-bottom:1rem}
+    .btn{display:inline-flex;align-items:center;gap:0.45rem;font-size:0.9rem;font-weight:800;padding:0.75rem 1.3rem;border-radius:999px;transition:transform 0.15s, background 0.15s, border-color 0.15s, box-shadow 0.15s;color:var(--text);border:1px solid transparent;cursor:pointer;line-height:1}
+    .btn-primary{background:rgba(255,255,255,0.92);color:#000;box-shadow:0 14px 44px rgba(0,0,0,0.34)}
+    .btn-primary:hover{background:#fff;color:#000;transform:translateY(-1px);box-shadow:0 18px 56px rgba(0,0,0,0.42)}
+    .btn-ghost{background:rgba(255,255,255,0.02);color:var(--text-secondary);border:1px solid var(--border)}
+    .btn-ghost:hover{border-color:var(--border-light);color:var(--text);text-decoration:none;transform:translateY(-1px)}
+
+    /* Hero terminal */
+    .hero-frame{max-width:920px;margin:3.25rem auto 0;perspective:1200px}
+    .frame{background:rgba(10,10,12,0.72);border:1px solid rgba(255,255,255,0.10);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow)}
+    .frame-bar{display:flex;align-items:center;gap:8px;padding:12px 16px;background:rgba(255,255,255,0.03);border-bottom:1px solid rgba(255,255,255,0.08)}
+    .dot{width:12px;height:12px;border-radius:50%}
+    .dot-r{background:#ff5f57}.dot-y{background:#febc2e}.dot-g{background:#28c840}
+    .frame-title{flex:1;text-align:center;font-size:0.72rem;color:var(--text-tertiary);font-weight:500}
+    .frame-body{padding:1.35rem 1.55rem;font-family:var(--mono);font-size:0.82rem;line-height:1.75;white-space:pre;overflow:auto;text-align:left}
+    .tg{color:var(--green)}.tb{color:var(--blue)}.to{color:var(--orange)}.tp{color:var(--purple)}.tk{color:var(--pink)}.td{color:rgba(255,255,255,0.34)}.tw{color:#fff;font-weight:700}
+
+    code.inline-code{
+      font-family:var(--mono);
+      font-size:0.88em;
+      background:rgba(255,255,255,0.04);
+      padding:0.2em 0.55em;
+      border-radius:10px;
+      border:1px solid var(--border);
+      color:var(--text);
+      white-space:nowrap;
+    }
+
+    /* ===== LOGOS BAR ===== */
+    .logos-section{border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:2rem 0}
+    .logos-row{display:flex;justify-content:center;align-items:center;gap:3rem;flex-wrap:wrap}
+    .logo-item{font-size:0.88rem;font-weight:600;color:var(--text-tertiary);display:flex;align-items:center;gap:0.4rem;letter-spacing:-0.01em}
+    .logo-dot{width:8px;height:8px;border-radius:50%}
+
+    /* ===== HEADLINE SECTION ===== */
+    .headline-section{text-align:center;padding:5rem 2rem 2rem}
+    .headline-section .kicker{font-size:0.82rem;font-weight:600;color:var(--accent);letter-spacing:0.02em;margin-bottom:0.75rem}
+    .headline-section h2{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:700;line-height:1.15;letter-spacing:-0.03em;max-width:700px;margin:0 auto}
+    .headline-section h2 span{color:var(--text-secondary)}
+
+    /* ===== SPLIT FEATURE SECTIONS ===== */
+    .split{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;padding:4rem 0}
+    .split-text h3{font-size:1.8rem;font-weight:700;letter-spacing:-0.03em;line-height:1.15;margin-bottom:1rem}
+    .split-text p{font-size:0.95rem;color:var(--text-secondary);line-height:1.65;margin-bottom:1rem}
+    .split-text .learn-more{font-size:0.88rem;color:var(--blue);font-weight:500;display:inline-flex;align-items:center;gap:0.3rem}
+    .split-text .learn-more:hover{text-decoration:none;gap:0.5rem}
+    .split.reverse .split-text{order:2}
+    .split.reverse .split-frame{order:1}
+
+    /* Perspective frame */
+    .perspective-left,.perspective-right{transition:transform 0.28s cubic-bezier(.2,.8,.2,1), border-color 0.15s, box-shadow 0.15s;will-change:transform}
+    .perspective-left{transform:perspective(1200px) rotateY(-3deg) rotateX(1.5deg)}
+    .perspective-right{transform:perspective(1200px) rotateY(3deg) rotateX(1.5deg)}
+    .perspective-left:hover{transform:perspective(1200px) rotateY(-1deg) rotateX(1deg) translateY(-2px);box-shadow:var(--shadow)}
+    .perspective-right:hover{transform:perspective(1200px) rotateY(1deg) rotateX(1deg) translateY(-2px);box-shadow:var(--shadow)}
+
+    /* ===== 3-COL FEATURES ===== */
+    .three-col{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;padding:2rem 0 5rem}
+    .feat-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:2rem;transition:transform 0.18s, border-color 0.18s, background 0.18s;box-shadow:var(--shadow-soft)}
+    .feat-card:hover{border-color:var(--border-light);transform:translateY(-2px);background:rgba(255,255,255,0.055)}
+    .feat-card .feat-icon{width:42px;height:42px;border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:1rem;background:linear-gradient(135deg, rgba(16,163,127,0.16), rgba(10,132,255,0.12));border:1px solid rgba(255,255,255,0.10);font-size:1.1rem}
+    .feat-card h4{font-size:1rem;font-weight:700;margin-bottom:0.4rem}
+    .feat-card p{font-size:0.85rem;color:var(--text-secondary);line-height:1.55}
+
+    /* ===== FRAMEWORK GRID ===== */
+    .fw-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;padding:0 0 3rem}
+    .fw-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.8rem;transition:transform 0.18s, border-color 0.18s, background 0.18s;position:relative;overflow:hidden;box-shadow:var(--shadow-soft)}
+    .fw-card:hover{border-color:var(--border-light);transform:translateY(-2px)}
+    .fw-card .fw-cat{font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;margin-bottom:0.5rem}
+    .fw-card h4{font-size:1.05rem;font-weight:700;margin-bottom:0.4rem}
+    .fw-card p{font-size:0.83rem;color:var(--text-secondary);line-height:1.5}
+    .fw-card .fw-num{position:absolute;top:1.5rem;right:1.5rem;font-size:2rem;font-weight:800;opacity:0.08}
+
+
+    /* ===== BOTTOM CTA ===== */
+    .cta-section{text-align:center;padding:7rem 2rem;position:relative}
+    .cta-section::before{content:'';position:absolute;bottom:-40px;left:50%;transform:translateX(-50%);width:820px;height:520px;background:radial-gradient(ellipse,rgba(16,163,127,0.11) 0%,transparent 62%);pointer-events:none}
+    .cta-section h2{font-size:clamp(2rem,5vw,3.5rem);font-weight:800;letter-spacing:-0.04em;line-height:1.1;margin-bottom:2rem}
+    .cta-installs{display:flex;flex-direction:column;gap:0.5rem;align-items:center;margin-top:2rem;max-width:420px;margin-left:auto;margin-right:auto}
+    .cta-chip{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:0.6rem 1.2rem;font-family:var(--mono);font-size:0.8rem;color:var(--text-secondary);transition:all 0.15s;cursor:pointer;width:100%;text-align:left}
+    .cta-chip:hover{border-color:var(--border-light);text-decoration:none;color:var(--text)}
+    .cta-chip b{color:var(--text);font-weight:600}
+
+    /* Footer */
+    footer{border-top:1px solid var(--border);padding:2.5rem 2rem;display:flex;align-items:center;justify-content:space-between;max-width:1200px;margin:0 auto}
+    footer .foot-left{display:flex;align-items:center;gap:0.4rem;font-size:0.82rem;font-weight:600;color:var(--text-tertiary)}
+    footer .foot-right{display:flex;gap:1.5rem}
+    footer .foot-right a{font-size:0.8rem;color:var(--text-tertiary)}
+
+    /* Responsive */
+    @media(max-width:900px){
+      .split{grid-template-columns:1fr;gap:2rem}
+      .split.reverse .split-text,.split.reverse .split-frame{order:unset}
+      .perspective-left,.perspective-right{transform:none}
+      .perspective-left:hover,.perspective-right:hover{transform:none}
+      .three-col,.fw-grid,.quotes{grid-template-columns:1fr}
+    }
+    @media(max-width:640px){
+      .hero{padding:6rem 1.5rem 0}
+      section{padding:4rem 0}
+      .logos-row{gap:1.5rem}
+      footer{flex-direction:column;gap:1rem;text-align:center}
+      .nav-links a:not(.nav-cta){display:none}
+    }
+    @media (prefers-reduced-motion: reduce){
+      html{scroll-behavior:auto}
+      *{transition:none !important}
+    }
+  </style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- Nav -->
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="#"><span class="logo-mark" aria-hidden="true"></span> Founder</a>
+    <div class="nav-links">
+      <a href="#features">Features</a>
+      <a href="#frameworks">Frameworks</a>
+      <a href="#providers">Providers</a>
+      <a href="https://github.com/TasteDotDev/founder-cli">GitHub</a>
+      <a href="#get-started" class="nav-cta">Get started</a>
+    </div>
+  </div>
+</nav>
+
+<main id="main">
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-kicker"><b>Founder</b> CLI</div>
+  <h1>Business frameworks that ship decisions.</h1>
+  <p class="hero-sub">530 frameworks. Any LLM. Web research, repo context, and memory — in your terminal.</p>
+  <div class="hero-actions">
+    <a href="#get-started" class="btn btn-primary">Get started</a>
+    <a href="https://github.com/TasteDotDev/founder-cli" class="btn btn-ghost">View on GitHub &rarr;</a>
+  </div>
+
+  <div class="hero-frame">
+    <div class="frame">
+      <div class="frame-bar">
+        <div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div>
+        <div class="frame-title">founder &mdash; ~/my-startup</div>
+      </div>
+      <div class="frame-body"><span class="td">$</span> <span class="tg">founder</span> <span class="tb">"We're at $5M ARR. Growth slowed from 3x to 1.5x. What's going on?"</span>
+
+<span class="td">  anthropic/claude-sonnet-4-6</span>
+<span class="tp">  &#x25cf; Applying four-fits-framework...</span>
+<span class="tp">  &#x25cf; Applying growth-accounting...</span>
+<span class="tp">  &#x25cf; Searching: B2B SaaS $5M ARR growth benchmarks...</span>
+<span class="tp">  &#x25cf; Reading package.json...</span>
+
+<span class="tw">## Four Fits Analysis</span>
+Your growth stall at $5M suggests a <span class="to">Channel-Model fit</span> problem.
+Early adopters were SMB via self-serve, but your pricing ($500/mo)
+and feature set now attract mid-market — they need sales touches
+you're not providing.
+
+<span class="tw">## What to do this week</span>
+<span class="tg">1.</span> Interview 10 recently churned customers (product vs price?)
+<span class="tg">2.</span> Calculate actual CAC payback from last quarter
+<span class="tg">3.</span> Only then decide: retention problem or acquisition problem
+
+<span class="td">  12.3k in → 2.1k out  ·  3 frameworks  ·  2 searches</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- Logos bar -->
+<section class="logos-section" style="margin-top:4rem">
+  <div class="wrap">
+    <div class="logos-row">
+      <div class="logo-item"><div class="logo-dot" style="background:#d4a27a"></div> Anthropic</div>
+      <div class="logo-item"><div class="logo-dot" style="background:#10a37f"></div> OpenAI</div>
+      <div class="logo-item"><div class="logo-dot" style="background:#4285f4"></div> Google</div>
+      <div class="logo-item"><div class="logo-dot" style="background:#8b5cf6"></div> OpenRouter</div>
+      <div class="logo-item"><div class="logo-dot" style="background:#888"></div> Custom</div>
+    </div>
+  </div>
+</section>
+
+<!-- Headline -->
+<section class="headline-section" id="features">
+  <div class="kicker">A new kind of business tool</div>
+  <h2>530 expert frameworks in your terminal. <span>Purpose-built for founders who think in first principles.</span></h2>
+</section>
+
+<!-- 3-col features -->
+<div class="wrap">
+  <div class="three-col">
+    <div class="feat-card"><div class="feat-icon">&#x1f50d;</div><h4>Built-in web research</h4><p>Searches for market benchmarks, competitors, pricing, and trends. No setup — no extra API keys.</p></div>
+    <div class="feat-card"><div class="feat-icon">&#x1f4c2;</div><h4>Reads your repo</h4><p>Builds context by reading your project files. Sandboxed to the directory you run it in.</p></div>
+    <div class="feat-card"><div class="feat-icon">&#x1f4be;</div><h4>Memory across sessions</h4><p>Remembers business context and preferences so advice compounds, instead of resetting every chat.</p></div>
+  </div>
+</div>
+
+<!-- Split 1: Interactive mode -->
+<section>
+  <div class="wrap">
+    <div class="split">
+      <div class="split-text">
+        <h3>Make business<br>analysis self-driving</h3>
+        <p>Run <code class="inline-code">founder</code> with no arguments and enter interactive mode. Ask questions, explore frameworks, and get advice — all in one session.</p>
+        <p>The agent automatically selects frameworks, searches the web for real data, reads your project files, and builds on your conversation history.</p>
+      </div>
+      <div class="split-frame">
+        <div class="frame perspective-left">
+          <div class="frame-bar"><div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div><div class="frame-title">interactive mode</div></div>
+          <div class="frame-body"><span class="td">$</span> <span class="tg">founder</span>
+
+<span class="tw">Founder CLI v0.1.4</span>
+<span class="td">530 frameworks. Type your problem. Ctrl+C to exit.</span>
+
+<span class="tg">founder ></span> <span class="tb">how do I get my first 100 customers?</span>
+
+<span class="td">  anthropic/claude-sonnet-4-6</span>
+<span class="tp">  &#x25cf; Reading package.json...</span>
+<span class="tp">  &#x25cf; Applying cold-start-problem...</span>
+<span class="tp">  &#x25cf; Searching: early customer acquisition strategies...</span>
+
+<span class="tw">## Cold Start Analysis</span>
+Based on your project, you're building a developer tool...
+
+<span class="tg">founder ></span> <span class="td">_</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Split 2: Framework routing (reversed) -->
+<section style="border-top:1px solid var(--border)">
+  <div class="wrap">
+    <div class="split reverse">
+      <div class="split-text">
+        <h3>Define the<br>right frameworks</h3>
+        <p>Target a specific category with <code class="inline-code">-c strategy</code> or a specific framework with <code class="inline-code">-f blitzscaling</code>.</p>
+        <p>Or let the agent decide. It reads your problem, selects 2-4 relevant frameworks, loads expert instructions for each, and applies them rigorously to your situation.</p>
+      </div>
+      <div class="split-frame">
+        <div class="frame perspective-right">
+          <div class="frame-bar"><div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div><div class="frame-title">framework selection</div></div>
+          <div class="frame-body"><span class="td">$</span> <span class="tg">founder</span> <span class="to">-c</span> strategy <span class="tb">"entering EU from the US"</span>
+<span class="td">  &#x25cf; Applying scenario-planning...</span>
+<span class="td">  &#x25cf; Applying pestel-analysis...</span>
+
+<span class="td">$</span> <span class="tg">founder</span> <span class="to">-f</span> lean-canvas <span class="tb">"AI marketing for SMBs"</span>
+<span class="td">  &#x25cf; Applying lean-canvas...</span>
+
+<span class="td">$</span> <span class="tg">founder</span> list strategy
+<span class="tw">strategy frameworks:</span>
+  <span class="tb">blitzscaling</span>       <span class="td">— 5-stage hypergrowth</span>
+  <span class="tb">blue-ocean</span>         <span class="td">— uncontested markets</span>
+  <span class="tb">porters-five-forces</span> <span class="td">— competitive dynamics</span>
+  <span class="tb">cold-start-problem</span>  <span class="td">— network effects</span>
+  <span class="td">... 44 more</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Split 3: Web search + context -->
+<section style="border-top:1px solid var(--border)">
+  <div class="wrap">
+    <div class="split">
+      <div class="split-text">
+        <h3>Move forward<br>with real data</h3>
+        <p>The agent searches the web for competitive intelligence, market benchmarks, pricing data, and industry trends. It reads web pages to extract specific information.</p>
+        <p>Combined with reading your project files, founder builds a complete picture of your business before applying any framework.</p>
+      </div>
+      <div class="split-frame">
+        <div class="frame perspective-left">
+          <div class="frame-bar"><div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div><div class="frame-title">web research</div></div>
+          <div class="frame-body"><span class="tp">  &#x25cf; Searching: notion pricing 2026...</span>
+<span class="tp">  &#x25cf; Reading notion.so/pricing...</span>
+<span class="tp">  &#x25cf; Searching: project management SaaS market size...</span>
+<span class="tp">  &#x25cf; Searching: asana vs monday pricing comparison...</span>
+<span class="tp">  &#x25cf; Reading g2.com/categories/project-management...</span>
+<span class="tp">  &#x25cf; Applying competitive-positioning...</span>
+<span class="tp">  &#x25cf; Applying value-migration...</span>
+
+<span class="tw">## Competitive Positioning</span>
+The PM market splits into three tiers:
+  <span class="to">Enterprise</span>  Asana, Monday ($30+/seat)
+  <span class="tg">Mid-market</span>  Notion, ClickUp ($10-20/seat)
+  <span class="tb">SMB/Free</span>    Linear, Height (usage-based)
+
+Your opportunity sits in the gap between...
+
+<span class="td">  28.1k in → 4.3k out  ·  2 frameworks  ·  5 searches</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Split 4: Live feedback (reversed) -->
+<section style="border-top:1px solid var(--border)">
+  <div class="wrap">
+    <div class="split reverse">
+      <div class="split-text">
+        <h3>Understand<br>what's happening</h3>
+        <p>Full transparency on every request. See which model is running, watch each tool call in real-time with a live spinner, and get a complete usage summary when done.</p>
+        <p>Token counts, framework count, search count, files read — all displayed after every response so you know exactly what happened.</p>
+      </div>
+      <div class="split-frame">
+        <div class="frame perspective-right">
+          <div class="frame-bar"><div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div><div class="frame-title">live feedback</div></div>
+          <div class="frame-body"><span class="td">  google/gemini-2.5-flash</span>          <span class="td">← model</span>
+<span class="tp">  &#x25cf; Browsing frameworks...</span>           <span class="td">← live spinner</span>
+<span class="tp">  &#x25cf; Applying blitzscaling...</span>          <span class="td">← tool calls</span>
+<span class="tp">  &#x25cf; Searching: marketplace GMV...</span>     <span class="td">← web search</span>
+<span class="tp">  &#x25cf; Reading README.md...</span>              <span class="td">← file access</span>
+
+<span class="tw">## Blitzscaling Assessment</span>
+Your marketplace is at the <span class="tg">Tribe stage</span>...
+...
+
+<span class="td">  8.5k in → 1.8k out  ·  2 frameworks  ·  1 search  ·  2 files read</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Frameworks Section -->
+<section style="border-top:1px solid var(--border)" id="frameworks">
+  <div class="headline-section" style="padding-top:0">
+    <div class="kicker">Frameworks</div>
+    <h2>530 frameworks across 15 categories</h2>
+  </div>
+  <div class="wrap">
+    <div class="fw-grid">
+      <div class="fw-card"><div class="fw-cat" style="color:var(--blue)">Strategy</div><h4>Blitzscaling</h4><p>5-stage hypergrowth from family to nation stage. Speed over efficiency in winner-take-all markets.</p><div class="fw-num">48</div></div>
+      <div class="fw-card"><div class="fw-cat" style="color:var(--orange)">Finance</div><h4>Sequoia Pitch Deck</h4><p>The fundraising format behind Airbnb, Stripe, YouTube. Problem, solution, market, business model.</p><div class="fw-num">46</div></div>
+      <div class="fw-card"><div class="fw-cat" style="color:var(--purple)">Innovation</div><h4>Superhuman PMF Engine</h4><p>Measure product-market fit with the "very disappointed" method. Segment, analyze, build roadmap.</p><div class="fw-num">50</div></div>
+      <div class="fw-card"><div class="fw-cat" style="color:var(--green)">Marketing</div><h4>Product-Led Growth</h4><p>Product as growth engine. Free trials, freemium, self-serve onboarding, viral loops, expansion revenue.</p><div class="fw-num">54</div></div>
+      <div class="fw-card"><div class="fw-cat" style="color:var(--pink)">Sales</div><h4>Cold Email Framework</h4><p>Cold outbound that gets replies. Personalization, subject lines, CTAs, multi-touch sequences.</p><div class="fw-num">30</div></div>
+      <div class="fw-card"><div class="fw-cat" style="color:var(--blue)">Strategy</div><h4>AI Go-To-Market</h4><p>Launch AI products right. Avoid the wrapper trap, build moats, price on value not tokens.</p><div class="fw-num">48</div></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Providers -->
+<section style="border-top:1px solid var(--border)" id="providers">
+  <div class="headline-section" style="padding-top:0">
+    <div class="kicker">Providers</div>
+    <h2>Works with any LLM. <span>Switch with one command.</span></h2>
+  </div>
+  <div class="wrap">
+    <div class="frame" style="max-width:700px;margin:0 auto">
+      <div class="frame-bar"><div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div><div class="frame-title">configuration</div></div>
+      <div class="frame-body"><span class="td"># env vars auto-detected — just set and go</span>
+<span class="tg">export</span> ANTHROPIC_API_KEY=sk-ant-...   <span class="td"># Claude</span>
+<span class="tg">export</span> OPENAI_API_KEY=sk-...          <span class="td"># GPT</span>
+<span class="tg">export</span> GOOGLE_API_KEY=AIza...          <span class="td"># Gemini</span>
+<span class="tg">export</span> OPENROUTER_API_KEY=sk-or-...    <span class="td"># Any model</span>
+
+<span class="td"># or configure manually</span>
+<span class="tg">founder</span> config set provider openai
+<span class="tg">founder</span> config set model gpt-5.2
+<span class="tg">founder</span> config setup                  <span class="td"># interactive wizard</span>
+<span class="tg">founder</span> models                        <span class="td"># fetch live model list</span>
+
+<span class="td"># shell completion (bash, zsh, fish)</span>
+<span class="tg">eval</span> <span class="tb">"$(founder completion zsh)"</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- Bottom CTA -->
+<section class="cta-section" id="get-started">
+  <h2>Built for founders.<br>Available today.</h2>
+  <div class="hero-actions">
+    <a href="#" class="btn btn-primary" onclick="navigator.clipboard.writeText('npm i -g @taste.dev/founder');this.textContent='Copied!';setTimeout(()=>this.textContent='Copy install',1500);return false">Copy install</a>
+    <a href="https://github.com/TasteDotDev/founder-cli" class="btn btn-ghost">GitHub &rarr;</a>
+  </div>
+  <div class="cta-installs">
+    <div class="cta-chip" onclick="copyChip(this,'npm i -g @taste.dev/founder')"><b>npm</b> i -g @taste.dev/founder</div>
+    <div class="cta-chip" onclick="copyChip(this,'bun add -g @taste.dev/founder')"><b>bun</b> add -g @taste.dev/founder</div>
+    <div class="cta-chip" onclick="copyChip(this,'brew install TasteDotDev/tap/founder')"><b>brew</b> install TasteDotDev/tap/founder</div>
+    <div class="cta-chip" onclick="copyChip(this,'npx @taste.dev/founder')"><b>npx</b> @taste.dev/founder "problem"</div>
+    <a class="cta-chip" href="https://github.com/TasteDotDev/founder-cli/releases"><b>binary</b> GitHub Releases</a>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-left"><span class="logo-mark" aria-hidden="true"></span> Founder</div>
+  <div class="foot-right">
+    <a href="https://taste.dev">taste.dev</a>
+    <a href="https://github.com/TasteDotDev/founder-cli">GitHub</a>
+    <a href="https://www.npmjs.com/package/@taste.dev/founder">npm</a>
+  </div>
+</footer>
+
+<script>
+function copyChip(el, cmd) {
+  navigator.clipboard.writeText(cmd);
+  var orig = el.innerHTML;
+  el.innerHTML = '<b style="color:var(--green)">Copied!</b> ' + cmd;
+  setTimeout(function() { el.innerHTML = orig; }, 1500);
+}
+</script>
+</main>
+</body>
+</html>

@@ -1,0 +1,148 @@
+name: Linux Package Repository
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build-packages:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Get latest release
+        id: release
+        run: |
+          VERSION=$(gh release view --json tagName -q .tagName | sed 's/cli-v//')
+          TAG=$(gh release view --json tagName -q .tagName)
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          echo "tag=$TAG" >> $GITHUB_OUTPUT
+        env:
+          GH_TOKEN: ${{ github.token }}
+
+      - name: Download binaries
+        run: |
+          mkdir -p bin
+          BASE="https://github.com/TasteDotDev/founder-cli/releases/download/${{ steps.release.outputs.tag }}"
+          curl -fsSL "${BASE}/founder-linux-x64" -o bin/founder-linux-x64
+          curl -fsSL "${BASE}/founder-linux-arm64" -o bin/founder-linux-arm64
+          chmod +x bin/*
+
+      - name: Build .deb packages
+        run: |
+          VERSION="${{ steps.release.outputs.version }}"
+
+          for pair in "amd64:founder-linux-x64" "arm64:founder-linux-arm64"; do
+            ARCH="${pair%%:*}"
+            BIN="${pair##*:}"
+            DIR="founder_${VERSION}_${ARCH}"
+            mkdir -p "${DIR}/DEBIAN" "${DIR}/usr/bin"
+            cp "bin/${BIN}" "${DIR}/usr/bin/founder"
+            chmod 755 "${DIR}/usr/bin/founder"
+            cat > "${DIR}/DEBIAN/control" <<EOF
+          Package: founder
+          Version: ${VERSION}
+          Section: utils
+          Priority: optional
+          Architecture: ${ARCH}
+          Maintainer: taste.dev <hello@taste.dev>
+          Description: Business consultant in your terminal — 568 frameworks, any LLM
+          Homepage: https://github.com/TasteDotDev/founder-cli
+          EOF
+            dpkg-deb --build "${DIR}"
+          done
+
+      - name: Build .rpm packages
+        run: |
+          sudo apt-get update && sudo apt-get install -y rpm createrepo-c
+          VERSION="${{ steps.release.outputs.version }}"
+
+          for pair in "x86_64:founder-linux-x64" "aarch64:founder-linux-arm64"; do
+            ARCH="${pair%%:*}"
+            BIN="${pair##*:}"
+            mkdir -p ~/rpmbuild/{SOURCES,SPECS,BUILD,RPMS,SRPMS}
+            cp "bin/${BIN}" ~/rpmbuild/SOURCES/founder
+
+            cat > ~/rpmbuild/SPECS/founder.spec <<EOF
+          Name:           founder
+          Version:        ${VERSION}
+          Release:        1
+          Summary:        Business consultant in your terminal
+          License:        MIT
+          URL:            https://github.com/TasteDotDev/founder-cli
+          BuildArch:      ${ARCH}
+
+          %description
+          568 business frameworks, any LLM provider.
+
+          %install
+          mkdir -p %{buildroot}/usr/bin
+          cp %{_sourcedir}/founder %{buildroot}/usr/bin/founder
+          chmod 755 %{buildroot}/usr/bin/founder
+
+          %files
+          /usr/bin/founder
+          EOF
+            rpmbuild -bb ~/rpmbuild/SPECS/founder.spec --target "${ARCH}" || true
+          done
+
+      - name: Build apt repository
+        run: |
+          mkdir -p repo/apt/pool repo/apt/dists/stable/main/binary-amd64 repo/apt/dists/stable/main/binary-arm64
+          cp *.deb repo/apt/pool/
+
+          cd repo/apt
+          dpkg-scanpackages pool > dists/stable/main/binary-amd64/Packages
+          dpkg-scanpackages pool > dists/stable/main/binary-arm64/Packages
+          gzip -k dists/stable/main/binary-amd64/Packages
+          gzip -k dists/stable/main/binary-arm64/Packages
+
+          cat > dists/stable/Release <<EOF
+          Origin: taste.dev
+          Label: Founder CLI
+          Suite: stable
+          Codename: stable
+          Architectures: amd64 arm64
+          Components: main
+          EOF
+
+      - name: Build yum repository
+        run: |
+          mkdir -p repo/yum
+          cp ~/rpmbuild/RPMS/*/*.rpm repo/yum/ 2>/dev/null || true
+          cd repo/yum && createrepo_c . || true
+
+      - name: Upload to release
+        run: |
+          for f in *.deb; do
+            gh release upload "${{ steps.release.outputs.tag }}" "$f" --clobber || true
+          done
+          for f in ~/rpmbuild/RPMS/*/*.rpm; do
+            gh release upload "${{ steps.release.outputs.tag }}" "$f" --clobber || true
+          done
+        env:
+          GH_TOKEN: ${{ github.token }}
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: repo/
+
+  deploy-repo:
+    needs: build-packages
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

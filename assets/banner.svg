@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="800" y2="200" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0f0f0f"/>
+      <stop offset="100%" stop-color="#1a1a2e"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="200" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#f97316"/>
+      <stop offset="100%" stop-color="#fb923c"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="200" rx="12" fill="url(#bg)"/>
+  <rect x="30" y="30" width="6" height="40" rx="3" fill="url(#accent)"/>
+  <text x="50" y="62" font-family="ui-monospace, 'Cascadia Code', 'Fira Code', monospace" font-size="32" font-weight="bold" fill="#f5f5f5">Founder Skills</text>
+  <text x="50" y="95" font-family="ui-monospace, 'Cascadia Code', 'Fira Code', monospace" font-size="16" fill="#a1a1aa">568 business frameworks. One slash command.</text>
+  <text x="50" y="140" font-family="ui-monospace, 'Cascadia Code', 'Fira Code', monospace" font-size="14" fill="#71717a">$</text>
+  <text x="68" y="140" font-family="ui-monospace, 'Cascadia Code', 'Fira Code', monospace" font-size="14" fill="#f97316">/founder</text>
+  <text x="175" y="140" font-family="ui-monospace, 'Cascadia Code', 'Fira Code', monospace" font-size="14" fill="#d4d4d8">Our growth stalled. What do we do?</text>
+  <rect x="50" y="155" width="180" height="24" rx="4" fill="#f97316" opacity="0.15"/>
+  <text x="58" y="172" font-family="ui-monospace, 'Cascadia Code', 'Fira Code', monospace" font-size="12" fill="#f97316">Applying 3 frameworks...</text>
+  <g transform="translate(640, 30)">
+    <rect width="130" height="32" rx="6" fill="#f97316" opacity="0.15"/>
+    <text x="12" y="21" font-family="ui-monospace, 'Cascadia Code', 'Fira Code', monospace" font-size="13" font-weight="bold" fill="#f97316">568 frameworks</text>
+  </g>
+  <g transform="translate(640, 72)">
+    <rect width="130" height="32" rx="6" fill="#22c55e" opacity="0.15"/>
+    <text x="12" y="21" font-family="ui-monospace, 'Cascadia Code', 'Fira Code', monospace" font-size="13" font-weight="bold" fill="#22c55e">16 categories</text>
+  </g>
+  <g transform="translate(640, 114)">
+    <rect width="130" height="32" rx="6" fill="#8b5cf6" opacity="0.15"/>
+    <text x="12" y="21" font-family="ui-monospace, 'Cascadia Code', 'Fira Code', monospace" font-size="13" font-weight="bold" fill="#8b5cf6">multi-platform</text>
+  </g>
+</svg>

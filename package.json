@@ -1,0 +1,66 @@
+{
+  "name": "@taste.dev/founder",
+  "version": "0.1.7",
+  "description": "Business consultant in your terminal — 568 frameworks, any LLM",
+  "type": "module",
+  "bin": {
+    "founder": "./dist/index.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "tsx src/index.ts",
+    "build": "tsup",
+    "bundle-skills": "tsx scripts/bundle-skills.ts",
+    "build:bin": "npm run bundle-skills && mkdir -p bin && bun build src/index.ts --compile --outfile bin/founder-darwin-arm64 --target=bun-darwin-arm64 && bun build src/index.ts --compile --outfile bin/founder-darwin-x64 --target=bun-darwin-x64 && bun build src/index.ts --compile --outfile bin/founder-linux-x64 --target=bun-linux-x64 && bun build src/index.ts --compile --outfile bin/founder-linux-arm64 --target=bun-linux-arm64 && bun build src/index.ts --compile --outfile bin/founder-windows-x64.exe --target=bun-windows-x64",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@ai-sdk/anthropic": "^1.0",
+    "@ai-sdk/google": "^1.0",
+    "@ai-sdk/openai": "^1.0",
+    "ai": "^4.2",
+    "chalk": "^5.0",
+    "commander": "^12.0",
+    "conf": "^13.0",
+    "ink": "^4.4.1",
+    "ink-spinner": "^5.0.0",
+    "ink-text-input": "^5.0.1",
+    "marked": "^15.0",
+    "marked-terminal": "^7.0",
+    "ora": "^8.0",
+    "prompts": "^2.4",
+    "react": "^18.3.1",
+    "zod": "^3.23"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0",
+    "@types/prompts": "^2.4",
+    "@types/react": "^18.3.28",
+    "@vitest/coverage-v8": "^2.1.9",
+    "tsup": "^8.0",
+    "tsx": "^4.0",
+    "typescript": "^5.7",
+    "vitest": "^2.0"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TasteDotDev/founder-cli"
+  },
+  "keywords": [
+    "founder",
+    "business",
+    "strategy",
+    "frameworks",
+    "cli",
+    "ai",
+    "consulting"
+  ]
+}

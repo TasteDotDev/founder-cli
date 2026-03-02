@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260" fill="none">
+  <!-- BIG round head (chibi proportions) -->
+  <circle cx="100" cy="90" r="70" fill="#fde68a"/>
+
+  <!-- Hair - bright magenta/pink for visibility on dark terminals -->
+  <ellipse cx="100" cy="38" rx="60" ry="28" fill="#c026d3"/>
+  <circle cx="65" cy="50" r="15" fill="#c026d3"/>
+  <circle cx="135" cy="50" r="15" fill="#c026d3"/>
+  <circle cx="85" cy="30" r="12" fill="#e879f9"/>
+  <circle cx="115" cy="32" r="10" fill="#e879f9"/>
+
+  <!-- Big simple eyes - white ovals with big black pupils -->
+  <ellipse cx="72" cy="88" rx="25" ry="26" fill="white" stroke="#000000" stroke-width="4"/>
+  <ellipse cx="128" cy="88" rx="25" ry="26" fill="white" stroke="#000000" stroke-width="4"/>
+  <!-- Pupils - big and centered -->
+  <circle cx="78" cy="92" r="14" fill="#000000"/>
+  <circle cx="134" cy="92" r="14" fill="#000000"/>
+  <!-- Single big sparkle each -->
+  <circle cx="86" cy="82" r="6" fill="white"/>
+  <circle cx="142" cy="82" r="6" fill="white"/>
+
+  <!-- Rosy cheeks -->
+  <ellipse cx="55" cy="110" rx="12" ry="8" fill="#fb7185" opacity="0.7"/>
+  <ellipse cx="145" cy="110" rx="12" ry="8" fill="#fb7185" opacity="0.7"/>
+
+  <!-- Cute little smile -->
+  <path d="M 85 115 Q 100 130 115 115" stroke="#92400e" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+
+  <!-- Tiny suit body - bright royal blue for visibility -->
+  <rect x="70" y="155" width="60" height="50" rx="12" fill="#2563eb"/>
+
+  <!-- White shirt collar -->
+  <path d="M 85 155 L 95 172 L 100 168 L 105 172 L 115 155" stroke="white" stroke-width="2.5" fill="white"/>
+
+  <!-- Cute tiny red tie -->
+  <path d="M 97 168 L 95 195 L 100 200 L 105 195 L 103 168Z" fill="#ef4444"/>
+
+  <!-- Tiny arms - bright blue -->
+  <path d="M 70 165 Q 50 180 48 195" stroke="#2563eb" stroke-width="16" fill="none" stroke-linecap="round"/>
+  <path d="M 130 165 Q 150 180 152 195" stroke="#2563eb" stroke-width="16" fill="none" stroke-linecap="round"/>
+
+  <!-- Coffee cup in hand - bright yellow lid -->
+  <rect x="38" y="192" width="20" height="22" rx="3" fill="white"/>
+  <rect x="38" y="192" width="20" height="6" rx="2" fill="#facc15"/>
+  <path d="M 58 198 Q 64 198 64 205 Q 64 212 58 212" stroke="white" stroke-width="3" fill="none"/>
+  <!-- Steam -->
+  <path d="M 43 187 Q 46 180 43 173" stroke="#a3a3a3" stroke-width="2" fill="none"/>
+  <path d="M 50 188 Q 53 181 50 174" stroke="#a3a3a3" stroke-width="2" fill="none"/>
+
+  <!-- Little legs - bright indigo -->
+  <rect x="78" y="203" width="16" height="18" rx="6" fill="#6366f1"/>
+  <rect x="106" y="203" width="16" height="18" rx="6" fill="#6366f1"/>
+
+  <!-- Tiny round shoes -->
+  <ellipse cx="86" cy="224" rx="12" ry="6" fill="#333333"/>
+  <ellipse cx="114" cy="224" rx="12" ry="6" fill="#333333"/>
+</svg>

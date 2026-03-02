@@ -1,0 +1,213 @@
+name: CLI Release
+
+on:
+  push:
+    tags:
+      - 'cli-v*'
+
+permissions:
+  contents: write
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+      - run: cd cli && bun install
+      - run: cd cli && bun test
+
+  build-npm:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+      - run: cd cli && bun install
+      - run: cd cli && bun run build
+      - run: cp -r skills cli/skills
+      - uses: actions/upload-artifact@v4
+        with:
+          name: npm-package
+          path: cli/
+
+  build-binaries:
+    needs: test
+    strategy:
+      matrix:
+        include:
+          - target: bun-darwin-arm64
+            os: macos-latest
+            artifact: founder-darwin-arm64
+          - target: bun-darwin-x64
+            os: macos-13
+            artifact: founder-darwin-x64
+          - target: bun-linux-x64
+            os: ubuntu-latest
+            artifact: founder-linux-x64
+          - target: bun-linux-arm64
+            os: ubuntu-latest
+            artifact: founder-linux-arm64
+          - target: bun-windows-x64
+            os: ubuntu-latest
+            artifact: founder-windows-x64.exe
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+      - run: cd cli && bun install
+      - name: Bundle skills data
+        run: cd cli && npx tsx scripts/bundle-skills.ts
+      - name: Build binary
+        run: |
+          cd cli
+          mkdir -p bin
+          bun build src/index.ts --compile --outfile bin/${{ matrix.artifact }} --target=${{ matrix.target }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.artifact }}
+          path: cli/bin/${{ matrix.artifact }}
+
+  build-linux-packages:
+    needs: build-binaries
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: founder-linux-x64
+          path: bin/
+      - uses: actions/download-artifact@v4
+        with:
+          name: founder-linux-arm64
+          path: bin-arm64/
+
+      - name: Build .deb packages
+        run: |
+          VERSION="${GITHUB_REF_NAME#cli-v}"
+          # amd64
+          cd cli/packaging/deb
+          bash build-deb.sh "$VERSION" amd64 ../../../bin/founder-linux-x64
+          # arm64
+          bash build-deb.sh "$VERSION" arm64 ../../../bin-arm64/founder-linux-arm64
+          ls -la *.deb
+
+      - name: Build .rpm packages
+        run: |
+          sudo apt-get update && sudo apt-get install -y rpm
+          VERSION="${GITHUB_REF_NAME#cli-v}"
+
+          # amd64
+          mkdir -p ~/rpmbuild/{SOURCES,SPECS,BUILD,RPMS,SRPMS}
+          cp bin/founder-linux-x64 ~/rpmbuild/SOURCES/founder
+          sed "s/Version:.*/Version:        $VERSION/" cli/packaging/rpm/founder.spec > ~/rpmbuild/SPECS/founder.spec
+          rpmbuild -bb ~/rpmbuild/SPECS/founder.spec
+          cp ~/rpmbuild/RPMS/x86_64/*.rpm cli/packaging/rpm/ || true
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: linux-packages
+          path: |
+            cli/packaging/deb/*.deb
+            cli/packaging/rpm/*.rpm
+
+  publish-npm:
+    needs: build-npm
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: npm-package
+          path: cli/
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          registry-url: https://registry.npmjs.org
+      - run: cd cli && npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+  github-release:
+    needs: [build-binaries, build-linux-packages, publish-npm]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          path: artifacts/
+      - name: Create release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            artifacts/founder-darwin-arm64/founder-darwin-arm64
+            artifacts/founder-darwin-x64/founder-darwin-x64
+            artifacts/founder-linux-x64/founder-linux-x64
+            artifacts/founder-linux-arm64/founder-linux-arm64
+            artifacts/founder-windows-x64.exe/founder-windows-x64.exe
+            artifacts/linux-packages/cli/packaging/deb/*.deb
+            artifacts/linux-packages/cli/packaging/rpm/*.rpm
+          generate_release_notes: true
+
+  update-homebrew:
+    needs: github-release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Update Homebrew formula
+        env:
+          GH_TOKEN: ${{ secrets.HOMEBREW_TAP_TOKEN }}
+        run: |
+          VERSION="${GITHUB_REF_NAME#cli-v}"
+          BASE_URL="https://github.com/TasteDotDev/founder-cli/releases/download/${GITHUB_REF_NAME}"
+
+          # Download and hash each binary
+          for bin in founder-darwin-arm64 founder-darwin-x64 founder-linux-x64 founder-linux-arm64; do
+            curl -fsSL "${BASE_URL}/${bin}" -o "/tmp/${bin}"
+            eval "${bin//-/_}_sha=$(sha256sum /tmp/${bin} | cut -d' ' -f1)"
+          done
+
+          # Clone tap and update formula
+          git clone https://x-access-token:${GH_TOKEN}@github.com/TasteDotDev/homebrew-tap.git /tmp/tap
+          cd /tmp/tap
+
+          cat > Formula/founder.rb << FORMULA
+          class Founder < Formula
+            desc "Business consultant in your terminal — 568 frameworks, any LLM"
+            homepage "https://github.com/TasteDotDev/founder-cli"
+            version "${VERSION}"
+            license "MIT"
+
+            on_macos do
+              if Hardware::CPU.arm?
+                url "${BASE_URL}/founder-darwin-arm64"
+                sha256 "${founder_darwin_arm64_sha}"
+              else
+                url "${BASE_URL}/founder-darwin-x64"
+                sha256 "${founder_darwin_x64_sha}"
+              end
+            end
+
+            on_linux do
+              if Hardware::CPU.arm?
+                url "${BASE_URL}/founder-linux-arm64"
+                sha256 "${founder_linux_arm64_sha}"
+              else
+                url "${BASE_URL}/founder-linux-x64"
+                sha256 "${founder_linux_x64_sha}"
+              end
+            end
+
+            def install
+              binary = Dir.glob("founder-*").first || "founder"
+              bin.install binary => "founder"
+            end
+
+            test do
+              assert_match "Available categories", shell_output("#{bin}/founder list")
+            end
+          end
+          FORMULA
+
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add Formula/founder.rb
+          git commit -m "Update founder to ${VERSION}"
+          git push

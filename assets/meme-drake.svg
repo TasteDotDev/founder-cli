@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 400" fill="none">
+  <rect width="500" height="400" rx="16" fill="#0f0f0f"/>
+
+  <!-- Row 1: Nah -->
+  <g transform="translate(0, 0)">
+    <!-- Left panel - disapproval -->
+    <rect x="16" y="16" width="140" height="168" rx="12" fill="#1e1e2e"/>
+    <text x="86" y="90" font-family="system-ui, sans-serif" font-size="56" text-anchor="middle" fill="#6c7086">😐</text>
+    <text x="86" y="130" font-family="ui-monospace, monospace" font-size="11" text-anchor="middle" fill="#ef4444">nah</text>
+
+    <!-- Right panel -->
+    <rect x="172" y="16" width="312" height="168" rx="12" fill="#1a1a1a"/>
+    <text x="192" y="55" font-family="system-ui, -apple-system, sans-serif" font-size="15" fill="#a1a1aa">Reading 47 business books</text>
+    <text x="192" y="80" font-family="system-ui, -apple-system, sans-serif" font-size="15" fill="#a1a1aa">Getting an MBA ($150K, 2 years)</text>
+    <text x="192" y="105" font-family="system-ui, -apple-system, sans-serif" font-size="15" fill="#a1a1aa">Hiring McKinsey ($500K, 6 weeks)</text>
+    <text x="192" y="130" font-family="system-ui, -apple-system, sans-serif" font-size="15" fill="#a1a1aa">Googling "startup frameworks" at 2am</text>
+    <text x="192" y="155" font-family="system-ui, -apple-system, sans-serif" font-size="15" fill="#a1a1aa">Asking ChatGPT "how to grow"</text>
+  </g>
+
+  <!-- Row 2: Yeah -->
+  <g transform="translate(0, 200)">
+    <!-- Left panel - approval -->
+    <rect x="16" y="0" width="140" height="184" rx="12" fill="#1e1e2e"/>
+    <text x="86" y="80" font-family="system-ui, sans-serif" font-size="56" text-anchor="middle" fill="#f97316">😏</text>
+    <text x="86" y="125" font-family="ui-monospace, monospace" font-size="11" text-anchor="middle" fill="#22c55e">yeah</text>
+
+    <!-- Right panel -->
+    <rect x="172" y="0" width="312" height="184" rx="12" fill="#1a1a1a" stroke="#f97316" stroke-width="1.5"/>
+    <text x="192" y="50" font-family="ui-monospace, 'SF Mono', monospace" font-size="18" font-weight="bold" fill="#f97316">/founder</text>
+    <text x="192" y="85" font-family="ui-monospace, monospace" font-size="13" fill="#a6e3a1">568 frameworks</text>
+    <text x="192" y="108" font-family="ui-monospace, monospace" font-size="13" fill="#a6e3a1">30 seconds</text>
+    <text x="192" y="131" font-family="ui-monospace, monospace" font-size="13" fill="#a6e3a1">actually specific to your business</text>
+    <text x="192" y="154" font-family="ui-monospace, monospace" font-size="13" fill="#a6e3a1">tells you when it's guessing</text>
+    <text x="192" y="174" font-family="ui-monospace, monospace" font-size="11" fill="#6c7086">github.com/TasteDotDev/founder-skills</text>
+  </g>
+</svg>
