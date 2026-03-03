@@ -1,6 +1,6 @@
 {
   "name": "@taste.dev/founder",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "Business consultant in your terminal — 568 frameworks, any LLM",
   "type": "module",
   "bin": {
