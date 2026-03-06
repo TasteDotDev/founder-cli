@@ -24,6 +24,12 @@ ROOT = Path(__file__).parent
 SKILLS_DIR = ROOT / "skills"
 DIST_DIR = ROOT / "dist"
 
+if not SKILLS_DIR.is_dir():
+    print(f"⚠ skills/ directory not found (it is gitignored).")
+    print(f"  This build script requires the skills/ directory with SKILL.md files.")
+    print(f"  Skipping build — nothing to do.")
+    sys.exit(0)
+
 # Categories that have frameworks.md (all except founder)
 CATEGORIES = sorted(
     d.name
