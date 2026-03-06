@@ -184,9 +184,13 @@
       padding:1rem 1.25rem;
       margin:1rem 0;
       color:var(--text);
-      white-space:pre-wrap;
       word-break:break-word;
       position:relative;
+    }
+    .prompt-full .prompt-text{
+      display:block;
+      margin-top:0.4rem;
+      white-space:pre-wrap;
     }
     .prompt-full .prompt-label{
       font-family:var(--font);
@@ -610,11 +614,7 @@ function renderExamples(examples) {
         </svg>
       </div>
       <div class="card-body">
-        <div class="prompt-full">
-          <span class="prompt-label">Prompt</span>
-          <button class="copy-btn" onclick="event.stopPropagation();copyPrompt(this, ${JSON.stringify(JSON.stringify('founder "' + ex.prompt + '"'))})">Copy</button>
-          founder "${escapeHtml(ex.prompt)}"
-        </div>
+        <div class="prompt-full"><span class="prompt-label">Prompt</span><button class="copy-btn" onclick="event.stopPropagation();copyPrompt(this, ${JSON.stringify(JSON.stringify('founder "' + ex.prompt + '"'))})">Copy</button><span class="prompt-text">founder "${escapeHtml(ex.prompt)}"</span></div>
         <div class="response-section">
           <div class="response-label">Founder CLI Response</div>
           <div class="response-content">${md(ex.response)}</div>
