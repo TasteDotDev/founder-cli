@@ -1,0 +1,25 @@
+{
+  "id": 82,
+  "title": "A/B Testing with Low Traffic",
+  "slug": "ab-testing-low-traffic",
+  "category": "product",
+  "tags": [
+    "ab-testing",
+    "experimentation",
+    "low-traffic",
+    "pricing"
+  ],
+  "context": "Only 5K monthly visitors, want to test pricing page",
+  "prompt": "We get 5K visitors/month. I want to A/B test our pricing page but I've heard you need massive traffic for statistical significance. Is A/B testing even possible for us?",
+  "response": "That's a really common question, and you're right to be thinking about statistical significance. It's true that more traffic makes A/B testing easier, but \"massive\" isn't always necessary. Whether 5,000 visitors/month is enough depends on a few key things:\n\n1.  Your current conversion rate (baseline): How many of those 5,000 visitors currently convert into a lead or customer after hitting your pricing page? If your current conversion rate is very low (e.g., 0.5%), you'll need more traffic to detect a change than if it's higher (e.g., 5%).\n2.  The size of the change you want to detect (Minimum Detectable Effect - MDE): Are you looking for a small 5% improvement in conversion, or would you be happy with a larger 20% improvement? It's much easier (requires less traffic) to detect a big change than a small one.\n3.  How confident you want to be (Statistical Significance): Most people aim for 95% confidence, meaning there's only a 5% chance your results are due to random luck.\n4.  How long you're willing to run the test: If you can run a test for a month or two, you accumulate more visitors than if you only run it for a week.\n\n### So, is it possible for you?\n\nWith 5,000 visitors/month, it's definitely possible, but you might need to:\n\n*   Look for bigger changes: Instead of tweaking a button color, test a completely different pricing model or value proposition. Larger changes are easier to detect with less traffic.\n*   Run the test longer: You might need to run your A/B test for several weeks or even a couple of months to gather enough data.\n*   Accept a higher MDE: You might only be able to confidently detect a 15-20% uplift, rather than a 5% uplift.\n\n### How to figure it out more precisely:\n\nYou can use an A/B test sample size calculator (just search for \"A/B test calculator\" online, many free ones exist). You'll input:\n\n*   Your current pricing page conversion rate (your baseline).\n*   The minimum uplift you'd be excited to see (e.g., 10% or 20% improvement).\n*   Your desired statistical significance (usually 95%).\n*   Your desired statistical power (usually 80%).\n\nThe calculator will tell you how many visitors per variation you need to reach statistical significance. Then you can compare that to your 5,000 visitors/month (which would be split between your A and B variations).\n\nFor example, if a calculator tells you you need 2,000 visitors per variation to detect a 20% uplift, and you get 5,000 visitors/month, you could run the test for about a month (2,500 visitors for A, 2,500 for B) and likely get a significant result if the uplift is indeed 20% or more.\n\n### What if it's still not enough?\n\nIf the numbers show you'd need to run a test for an impractically long time (like 6+ months), don't despair. You can still make data-driven decisions:\n\n*   Sequential Testing: Instead of A/B, try A/B/A. Run A for a period, then B, then A again. This isn't as robust as true A/B but can give directional insights.\n*   Qualitative Research: Talk to users! Do user interviews, run surveys, or conduct usability tests. Ask them about your pricing page directly. This can uncover major issues quickly without needing huge traffic.\n*   Focus on bigger bets: If you can't test small changes, focus your energy on making larger, more impactful changes that are more likely to move the needle significantly, even if you can't perfectly quantify the exact uplift with an A/B test.\n\nSo, yes, A/B testing is likely possible for you, but you'll need to be strategic about what you test and how long you run it.",
+  "metadata": {
+    "model": "google/gemini-2.5-flash",
+    "tokensIn": 4200,
+    "tokensOut": 924,
+    "frameworks": 0,
+    "searches": 0,
+    "filesRead": 0,
+    "generatedAt": "2026-03-04T19:04:18.586Z",
+    "elapsedSeconds": 8.5
+  }
+}

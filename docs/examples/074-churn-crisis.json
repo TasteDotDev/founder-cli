@@ -1,0 +1,25 @@
+{
+  "id": 74,
+  "title": "Churn Crisis Diagnosis",
+  "slug": "churn-crisis",
+  "category": "product",
+  "tags": [
+    "churn",
+    "retention",
+    "crisis",
+    "diagnosis"
+  ],
+  "context": "Monthly churn jumped from 3% to 8% over two months",
+  "prompt": "Our monthly churn jumped from 3% to 8% in the last two months. Revenue is still growing but the trend is terrifying. How do I diagnose and fix this?",
+  "response": "That's definitely a terrifying trend, and it's smart to jump on it now, even with revenue still growing. A jump from 3% to 8% monthly churn can quickly erode your growth and future potential.\n\nTo help you diagnose this, I need a little more context. Could you tell me:\n\n1.  What changed in the last two months? Think broadly:\n    *   Any significant product updates or new features launched (or removed)?\n    *   Pricing changes?\n    *   New competitors entering the market or existing ones making big moves?\n    *   Changes in your target customer segment or acquisition channels?\n    *   Any major shifts in the market or economy that might impact your customers?\n2.  What kind of product or service do you offer? (e.g., B2B SaaS, B2C subscription, e-commerce, etc.)\n3.  What's your typical customer lifecycle like? (e.g., short trial, long sales cycle, self-serve onboarding, etc.)\n4.  What's the average contract value or subscription price? (Roughly, this helps understand the impact per churned customer.)\n\nOnce I have a bit more detail, we can dig into some frameworks to pinpoint the root causes.",
+  "metadata": {
+    "model": "google/gemini-2.5-flash",
+    "tokensIn": 4200,
+    "tokensOut": 274,
+    "frameworks": 0,
+    "searches": 0,
+    "filesRead": 0,
+    "generatedAt": "2026-03-04T19:01:12.122Z",
+    "elapsedSeconds": 4.6
+  }
+}

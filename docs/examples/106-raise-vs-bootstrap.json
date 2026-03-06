@@ -1,0 +1,25 @@
+{
+  "id": 106,
+  "title": "Raise vs Bootstrap",
+  "slug": "raise-vs-bootstrap",
+  "category": "decisions",
+  "tags": [
+    "raise",
+    "bootstrap",
+    "competition",
+    "growth"
+  ],
+  "context": "Profitable business at an inflection point",
+  "prompt": "We're profitable at $80K MRR, growing 8% month-over-month. A VC wants to invest $5M. We don't need the money but competitors are raising. Should we take it?",
+  "response": "This is a classic dilemma for profitable, growing companies. It's less about needing the cash and more about strategic positioning and the long-term vision for your business.\n\nLet's break this down using a few frameworks to give us some structure.\n\nFirst, let's look at your current defensibility and how competitors raising might impact it.\n\nMy apologies, it seems I misremembered the exact name of the competitive moat framework. Let me quickly check the available frameworks in the 'strategy' category to find the right one, or a suitable alternative to assess your competitive position.\n\nAh, thank you for your patience. The correct framework for assessing competitive defensibility is Competitive Moat Analysis. I'll also use Real Options Strategy to think about the investment decision itself, and Three Horizons Framework to consider how this funding might impact your long-term growth and innovation.\n\nLet's start with Competitive Moat Analysis to understand your current position and how competitor funding might affect it.\n\n────────────────────────────────────────────────────────────\n\n### 1. Competitive Moat Analysis\n\nThis framework helps identify and evaluate the defensibility of your competitive moat across network effects, switching costs, brand, scale, and proprietary assets.\n\nOkay, let's apply the Competitive Moat Analysis. To do this effectively, I need a bit more information about your business.\n\nCould you tell me:\n\n1.  What exactly does your company do? (e.g., \"vertical SaaS platform for dental practices,\" \"e-commerce marketplace for handmade goods,\" \"AI-powered analytics tool for marketing teams\")\n2.  Who are your primary customers?\n3.  What are your key differentiators today? What makes customers choose you over alternatives?\n4.  Who are these competitors that are raising money, and what do they do?\n\nOnce I have this context, I can provide a much more specific and useful analysis.",
+  "metadata": {
+    "model": "google/gemini-2.5-flash",
+    "tokensIn": 22400,
+    "tokensOut": 457,
+    "frameworks": 2,
+    "searches": 0,
+    "filesRead": 0,
+    "generatedAt": "2026-03-04T22:12:52.264Z",
+    "elapsedSeconds": 9
+  }
+}

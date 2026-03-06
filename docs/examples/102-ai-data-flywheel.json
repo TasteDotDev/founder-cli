@@ -1,0 +1,25 @@
+{
+  "id": 102,
+  "title": "AI Data Flywheel",
+  "slug": "ai-data-flywheel",
+  "category": "ai",
+  "tags": [
+    "data",
+    "flywheel",
+    "moat",
+    "network-effects"
+  ],
+  "context": "Building a data flywheel for your AI product",
+  "prompt": "Everyone says 'data is the moat' for AI companies. We have 10K users generating data daily. How do we actually turn this into a competitive advantage?",
+  "response": "That's a sharp question. \"Data is the moat\" gets thrown around a lot, but actually building that moat takes real work. You've got the raw material with 10K daily users generating data, which is a great start. The challenge is turning that raw material into something truly defensible and valuable.\n\nLet's break down how to think about this. I'll use a couple of frameworks to structure our thinking:\n\n1.  Competitive Moat: To understand what makes a moat, and how data can contribute to it.\n2.  AI-First Product Design: To connect your data directly to your product's core AI capabilities and user experience.\n\nFirst, let's get the expert instructions for these frameworks.My apologies, it seems I used incorrect slugs for those frameworks. Let me first check the available frameworks to make sure I'm using the right ones.Okay, my apologies again. I see the correct slugs now.\n\nFor \"Competitive Moat,\" the correct slug is moat-analysis in the \"strategy\" category.\nFor \"AI-First Product Design,\" the correct slug is ai-first-product in the \"innovation\" category.\n\nLet's try that again.Great, now we have the correct instructions.\n\nYou're right to focus on how to actually turn your 10K daily users and their data into a competitive advantage. It's not enough to just have data; it's about how you use it to create defensibility and a superior product.\n\nLet's apply these two frameworks to your situation. To do that effectively, I need a little more context about your business.\n\nCould you tell me:\n\n1.  What does your company do? What problem do you solve for your users?\n2.  What kind of data are your 10K users generating daily? (e.g., text, images, sensor data, transactional data, behavioral data, etc.)\n3.  What is the core AI capability you envision or already have? (e.g., personalization, prediction, content generation, anomaly detection, automation, etc.)\n\nOnce I have this, I can apply the frameworks with much more specificity.",
+  "metadata": {
+    "model": "google/gemini-2.5-flash",
+    "tokensIn": 28100,
+    "tokensOut": 595,
+    "frameworks": 4,
+    "searches": 0,
+    "filesRead": 0,
+    "generatedAt": "2026-03-04T19:16:33.836Z",
+    "elapsedSeconds": 8.1
+  }
+}

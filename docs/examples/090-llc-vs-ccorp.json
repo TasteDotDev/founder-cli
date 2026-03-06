@@ -1,0 +1,25 @@
+{
+  "id": 90,
+  "title": "LLC vs C-Corp Decision",
+  "slug": "llc-vs-ccorp",
+  "category": "operations",
+  "tags": [
+    "legal",
+    "entity",
+    "c-corp",
+    "llc"
+  ],
+  "context": "Deciding between LLC and C-Corp",
+  "prompt": "Starting a SaaS company. My lawyer says C-Corp, my accountant says LLC. I plan to raise money eventually. What's the right structure?",
+  "response": "Okay, this is a classic founder question, and both your lawyer and accountant have valid points from their respective angles. The \"right\" answer often depends on your long-term goals, especially fundraising.\n\nLet's break this down using a decision matrix to compare C-Corp and LLC, focusing on the factors most relevant to a SaaS company planning to raise capital.\n\n### Decision: Choosing the Right Legal Structure for a SaaS Startup Planning to Raise Capital\n\nLet's compare the C-Corp and LLC structures based on criteria critical for a SaaS company aiming for external investment.\n\nOptions:\n1.  C-Corp\n2.  LLC\n\nEvaluation Criteria & Weights:\n\n| Criterion                               | Weight (%) | Rationale",
+  "metadata": {
+    "model": "google/gemini-2.5-flash",
+    "tokensIn": 9100,
+    "tokensOut": 175,
+    "frameworks": 1,
+    "searches": 0,
+    "filesRead": 0,
+    "generatedAt": "2026-03-06T00:44:42.806Z",
+    "elapsedSeconds": 222.7
+  }
+}

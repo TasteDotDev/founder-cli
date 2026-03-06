@@ -1,0 +1,25 @@
+{
+  "id": 2,
+  "title": "Solo Founder SaaS Pricing",
+  "slug": "solo-saas-pricing",
+  "category": "early-stage",
+  "tags": [
+    "pricing",
+    "saas",
+    "solo-founder",
+    "api"
+  ],
+  "context": "Developer who built an API monitoring tool, 50 free users, ready to charge",
+  "prompt": "I built an API monitoring tool. 50 companies using it free. I need to start charging but I'm a solo dev and don't know how to price it.",
+  "response": "Okay, this is a common challenge for solo founders. You've got 50 users, which is great validation, now it's time to figure out how to turn that into a sustainable business.\n\nTo help you think through pricing, I need a bit more context.\n\n1.  What specific problems does your API monitoring tool solve for these 50 companies? What's the core value they get from it?\n2.  What kind of companies are these 50 users? (e.g., small startups, mid-market, enterprise? What industries?)\n3.  Have you looked at any competitors in the API monitoring space? If so, what are they charging and how do they structure their pricing (e.g., per API call, per monitor, per user, per environment)?\n4.  Do you have a rough idea of your current infrastructure/hosting costs to run the service for these 50 free users?",
+  "metadata": {
+    "model": "google/gemini-2.5-flash",
+    "tokensIn": 4200,
+    "tokensOut": 205,
+    "frameworks": 0,
+    "searches": 0,
+    "filesRead": 0,
+    "generatedAt": "2026-03-04T21:40:24.241Z",
+    "elapsedSeconds": 5.5
+  }
+}

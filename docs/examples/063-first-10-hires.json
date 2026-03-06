@@ -1,0 +1,25 @@
+{
+  "id": 63,
+  "title": "First 10 Hires",
+  "slug": "first-10-hires",
+  "category": "team",
+  "tags": [
+    "hiring",
+    "first-hires",
+    "solo-founder",
+    "prioritization"
+  ],
+  "context": "Solo founder at $200K ARR ready to hire",
+  "prompt": "I'm a solo founder at $200K ARR. It's just me. I need to start hiring but don't know who to hire first — engineer, marketer, salesperson, or ops person?",
+  "response": "Okay, this is a classic solo founder challenge. At $200K ARR, you've clearly built something valuable, but scaling yourself is the next hurdle.\n\nTo figure out who to hire first, we need to pinpoint your biggest bottleneck and where you're spending most of your time.\n\nCould you tell me a bit more about:\n\n1.  What's currently preventing you from growing faster? (e.g., \"I can't build features fast enough,\" \"I'm not getting enough leads,\" \"Customers are churning,\" \"I'm drowning in support tickets.\")\n2.  What do you spend most of your time doing each week? (e.g., \"Coding,\" \"Sales calls,\" \"Customer support,\" \"Marketing content,\" \"Admin/Ops.\")\n3.  What part of the business do you enjoy the least or feel least competent doing?",
+  "metadata": {
+    "model": "google/gemini-2.5-flash",
+    "tokensIn": 4200,
+    "tokensOut": 190,
+    "frameworks": 0,
+    "searches": 0,
+    "filesRead": 0,
+    "generatedAt": "2026-03-04T18:57:34.653Z",
+    "elapsedSeconds": 4.8
+  }
+}

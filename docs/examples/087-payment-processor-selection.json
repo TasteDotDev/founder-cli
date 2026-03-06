@@ -1,0 +1,25 @@
+{
+  "id": 87,
+  "title": "Payment Processor Selection",
+  "slug": "payment-processor-selection",
+  "category": "operations",
+  "tags": [
+    "payments",
+    "vendor-selection",
+    "stripe",
+    "fintech"
+  ],
+  "context": "Choosing between 5 similar tools for a critical function",
+  "prompt": "I need to pick a payment processor. Stripe, Adyen, Braintree, Square, and Paddle all seem fine. How do I choose without spending a month evaluating?",
+  "response": "Okay, this is a classic decision-making challenge where you want to make a good choice without getting bogged down in endless research. I can help you structure this.\n\nTo pick the right payment processor, we need to compare them against what matters most to your business. I'll propose some common criteria, and you can tell me which ones are most important, or if there are others you'd add.\n\nHere are some typical factors to consider for payment processors:\n\n1.  Pricing & Fees: What are the transaction fees, monthly fees, chargeback fees, etc.?\n2.  Supported Payment Methods: Do they handle credit cards, debit cards, digital wallets (Apple Pay, Google Pay), and any specific local payment methods you need?\n3.  Global Reach & Currencies: Which countries and currencies do you need to support now or in the future?\n4.  Integration & Developer Experience: How easy is it to integrate with your existing systems? Are the APIs well-documented?\n5.  Key Features: Do you need recurring billing, invoicing, fraud detection, dispute management, marketplace capabilities, or specific reporting?\n6.  Customer Support: How responsive and helpful is their support when things go wrong?\n7.  Security & Compliance: How robust are their fraud tools and PCI compliance?\n8.  Scalability: Can they grow with you as your transaction volume increases?\n\nCould you tell me which of these are most critical for you, and if there are any other specific needs or concerns you have? Once I know your priorities, we can build a quick decision matrix to evaluate Stripe, Adyen, Braintree, Square, and Paddle.",
+  "metadata": {
+    "model": "google/gemini-2.5-flash",
+    "tokensIn": 4200,
+    "tokensOut": 353,
+    "frameworks": 0,
+    "searches": 0,
+    "filesRead": 0,
+    "generatedAt": "2026-03-04T19:05:27.278Z",
+    "elapsedSeconds": 4.5
+  }
+}

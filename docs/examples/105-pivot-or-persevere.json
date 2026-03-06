@@ -1,0 +1,25 @@
+{
+  "id": 105,
+  "title": "Pivot or Persevere",
+  "slug": "pivot-or-persevere",
+  "category": "decisions",
+  "tags": [
+    "pivot",
+    "persevere",
+    "morale",
+    "metrics"
+  ],
+  "context": "18 months in, metrics are mediocre, team is tired",
+  "prompt": "18 months in. $15K MRR, flat for 4 months. Team of 5 is demoralized. We have a pivot idea that's exciting but means starting over. Do we pivot or push through?",
+  "response": "This is a tough spot, and it sounds like you're wrestling with a really significant decision. Flat MRR for 4 months with a demoralized team is a clear signal that something needs to change. The exciting pivot idea offers a potential way out, but \"starting over\" is a huge commitment.\n\nTo help you think through this, let's get a bit more specific on both paths.\n\n1.  Current Business:\n    *   What is your current product/service, and who is it for?\n    *   Why do you think the MRR has been flat for the last 4 months? (e.g., acquisition stalled, churn increased, market changed, product issues?)\n       What's the best-case scenario* if you push through with the current business? What would need to happen?\n\n2.  Pivot Idea:\n    *   Can you briefly describe the pivot idea? What problem does it solve, and for whom?\n    *   What makes it \"exciting\" to you and the team?\n       What's the worst-case scenario* if you pursue the pivot? What are the biggest risks?\n\nOnce I have a bit more detail, we can use some frameworks to structure the decision. I'm thinking a Decision Matrix to compare the options systematically, and a Pre-Mortem for both paths to proactively identify potential failure points.",
+  "metadata": {
+    "model": "google/gemini-2.5-flash",
+    "tokensIn": 4200,
+    "tokensOut": 301,
+    "frameworks": 0,
+    "searches": 0,
+    "filesRead": 0,
+    "generatedAt": "2026-03-04T19:18:21.556Z",
+    "elapsedSeconds": 5.1
+  }
+}

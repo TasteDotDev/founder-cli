@@ -1,0 +1,25 @@
+{
+  "id": 78,
+  "title": "Onboarding Drop-Off Fix",
+  "slug": "onboarding-dropoff",
+  "category": "product",
+  "tags": [
+    "onboarding",
+    "activation",
+    "ux",
+    "conversion"
+  ],
+  "context": "60% of signups never complete setup",
+  "prompt": "60% of new signups don't complete onboarding. They sign up, see the dashboard, and leave. We've tried tutorials and tooltips. Nothing works.",
+  "response": "That's a tough spot. A 60% drop-off rate right after signup is a significant leak in your funnel, and it's frustrating when the usual fixes like tutorials don't move the needle. It sounds like users aren't connecting with the core value of your product quickly enough, or perhaps they're not finding what they expected.\n\nLet's dig into this. I'll use a few frameworks to help us structure our thinking and pinpoint where the disconnect might be happening.\n\nFirst, let's look at the Jobs To Be Done (JTBD) framework. This helps us understand what problem users are really trying to solve when they sign up for your product. It's not about what your product does, but what job the customer \"hires\" your product to do for them.\n\nNext, we'll use the Four Fits Framework. This helps us diagnose which part of your product-market fit might be broken, specifically looking at market-product fit, product-channel fit, channel-model fit, and model-market fit. Given your onboarding issue, it's likely a problem with how your product is initially perceived or delivered to the user.\n\nFinally, we'll use the Customer Journey Mapping framework. This will help us visualize the user's experience from their initial signup to their abandonment, identifying pain points and opportunities for improvement at each step.\n\nMy apologies, it seems I made a mistake and customer-journey-mapping isn't available in the design category. Let me correct that and find a suitable alternative.\n\nInstead of Customer Journey Mapping, which I seem to have misremembered the category for, let's use the Lean Canvas framework. While typically used for new ventures, it's excellent for quickly outlining key aspects of your business, including problem, solution, unique value proposition, and customer segments. This will help us ensure there's alignment between what users expect and what they encounter immediately after signup.\n\nTo apply these frameworks effectively, I need a bit more context about your product. Could you tell me:\n\n1.  What does your product do? (e.g., \"It's a project management tool for remote teams,\" or \"It's an AI-powered writing assistant for marketers.\")\n2.  Who is your target user? (e.g., \"Small business owners,\" \"Enterprise sales teams,\" \"Individual content creators.\")\n3.  What problem does your product solve for them? (e.g., \"Helps them organize tasks,\" \"Automates report generation,\" \"Generates blog post ideas.\")\n4.  What are the existing alternatives your users might be using? (e.g., \"Spreadsheets,\" \"Competitor X,\" \"Doing it manually.\")\n\nOnce I have this, I can apply the frameworks and give you a more tailored analysis.",
+  "metadata": {
+    "model": "google/gemini-2.5-flash",
+    "tokensIn": 27400,
+    "tokensOut": 696,
+    "frameworks": 4,
+    "searches": 0,
+    "filesRead": 0,
+    "generatedAt": "2026-03-04T19:01:53.899Z",
+    "elapsedSeconds": 9.3
+  }
+}

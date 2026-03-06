@@ -1,0 +1,25 @@
+{
+  "id": 85,
+  "title": "SOC2 Compliance Decision",
+  "slug": "soc2-compliance",
+  "category": "operations",
+  "tags": [
+    "soc2",
+    "compliance",
+    "enterprise",
+    "cost-benefit"
+  ],
+  "context": "Enterprise customers requiring SOC2, expensive to get",
+  "prompt": "Three enterprise prospects require SOC2. We're 8 people. SOC2 compliance costs $50-100K and takes 6 months. Is it worth it at our stage?",
+  "response": "This is a critical decision for an 8-person team. To give you a solid perspective, I need a bit more context.\n\nCould you tell me:\n\n1.  What's the estimated Annual Contract Value (ACV) or total deal size for these three enterprise prospects? (e.g., $X per year per client)\n2.  How likely are you to close these deals if you do get SOC2? (e.g., \"very high, it's the only blocker\" or \"medium, there are other factors\")\n3.  How likely are you to lose these deals if you don't get SOC2? (e.g., \"100% they won't sign without it\" or \"they might consider alternatives\")\n4.  Are there other enterprise prospects in your pipeline that would also require SOC2, or is this a one-off for now?\n5.  What's the current stage of these three deals? (e.g., \"final negotiations, just waiting on this\" or \"early discovery calls\")\n\nOnce I have these details, we can run a more specific cost-benefit analysis.",
+  "metadata": {
+    "model": "google/gemini-2.5-flash",
+    "tokensIn": 4200,
+    "tokensOut": 259,
+    "frameworks": 0,
+    "searches": 0,
+    "filesRead": 0,
+    "generatedAt": "2026-03-04T19:05:18.574Z",
+    "elapsedSeconds": 4.8
+  }
+}

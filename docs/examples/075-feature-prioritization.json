@@ -1,0 +1,25 @@
+{
+  "id": 75,
+  "title": "Feature Prioritization",
+  "slug": "feature-prioritization",
+  "category": "product",
+  "tags": [
+    "prioritization",
+    "backlog",
+    "rice",
+    "roadmap"
+  ],
+  "context": "50 feature requests, 3 engineers, need to pick the right 5",
+  "prompt": "We have 50 feature requests on the backlog. 3 engineers. Customers are asking for everything. How do I ruthlessly prioritize?",
+  "response": "Okay, this is a classic challenge: a huge backlog, limited engineering power, and customers wanting everything. It's tough, but we can definitely bring some structure to it.\n\nTo help you ruthlessly prioritize, I'm going to suggest two frameworks:\n\n1.  Impact-Effort Matrix: This helps you quickly categorize features based on how much value they deliver versus how much work they'll take. It's great for identifying quick wins and big bets.\n2.  Weighted Scoring Model: This is a more detailed approach where you define specific criteria (like customer value, strategic alignment, risk) and score each feature against them. It helps make prioritization more objective and defensible.\n\nLet's start with the Impact-Effort Matrix. This will help us get a high-level view of your 50 features.\n\nAlright, let's get into the Impact-Effort Matrix.\n\nFirst, we need to define what \"impact\" and \"effort\" mean for your business. This is crucial because it makes the prioritization relevant to your specific goals.\n\nGiven you have 50 feature requests and 3 engineers, I'd suggest the following definitions:\n\n### Defining Impact & Effort\n\nImpact (Value to the Business): How much does this feature move the needle on your key business goals?\n*   Customer Value: Does it solve a critical pain point, delight users, or open up new use cases? (e.g., reduces churn, increases engagement, enables new workflows)\n*   Revenue Potential: Does it directly lead to more sales, higher ACV, or better retention? (e.g., new upsell feature, removes a blocker for enterprise deals)\n*   Strategic Alignment: How well does it fit with your long-term product vision and company strategy? (e.g., builds a core differentiator, expands into a target market)\n*   Risk Reduction: Does it address a critical security, compliance, or technical debt issue?\n\nEffort (Resources Required): How much work will it take your 3 engineers to build and maintain this feature?\n*   Development Time: Estimated engineering hours/days (design, coding, testing).\n*   Complexity: How many systems does it touch? Are there many unknowns or dependencies?\n*   Design/UX: Does it require significant new UI/UX work?\n*   Testing/QA: How extensive will testing be?\n*   Deployment/Maintenance: Any ongoing operational overhead?\n\n────────────────────────────────────────────────────────────\n\nNow, here's how we'll apply it. I need you to think about your 50 features and, for each one, give me a rough sense of its impact and effort.\n\nSince we can't go through all 50 right now, let's take a few examples. Can you give me 3-5 of your most pressing feature requests? For each one, tell me:\n\n1.  Feature Name/Description: (e.g., \"Export data to CSV\", \"Integrate with Salesforce\", \"Improved search functionality\")\n2.  Why customers are asking for it: (e.g., \"They need to analyze data offline\", \"Sales team wants to sync leads\", \"Can't find relevant information quickly\")\n3.  Your gut feeling on its Impact (High/Medium/Low):\n4.  Your gut feeling on its Effort (High/Medium/Low):\n\nOnce I have a few examples, I can show you how the matrix works, and you can then apply it to your full backlog.",
+  "metadata": {
+    "model": "google/gemini-2.5-flash",
+    "tokensIn": 17200,
+    "tokensOut": 817,
+    "frameworks": 1,
+    "searches": 0,
+    "filesRead": 0,
+    "generatedAt": "2026-03-04T19:01:21.570Z",
+    "elapsedSeconds": 9.4
+  }
+}

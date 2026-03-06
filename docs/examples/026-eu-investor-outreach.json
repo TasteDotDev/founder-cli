@@ -1,0 +1,25 @@
+{
+  "id": 26,
+  "title": "EU Investor Outreach",
+  "slug": "eu-investor-outreach",
+  "category": "fundraising",
+  "tags": [
+    "international",
+    "eu",
+    "climate-tech",
+    "cross-border"
+  ],
+  "context": "US-based startup wanting to raise from EU investors",
+  "prompt": "We're a US climate tech startup. American VCs say we're too early but we've heard EU investors are more climate-friendly. How do we approach EU fundraising from the US?",
+  "response": "Okay, I hear you. US VCs are saying \"too early,\" and you're looking to the EU, where the climate tech investment landscape might be more aligned with your stage. That's a smart move to explore.\n\nApproaching EU fundraising from the US requires a clear strategy, not just a good pitch. We need to understand what \"too early\" means to US VCs, how that might differ for EU VCs, and then map out the EU ecosystem.\n\nLet's structure our thinking using a few frameworks to get a clear picture:\n\n1.  Sequoia Pitch Deck: This will help us ensure your core story is solid and addresses the key questions any investor will have, regardless of geography. It will also highlight areas where you might be perceived as \"early\" and how to strengthen them.\n2.  Stakeholder Mapping: We'll use this to identify and understand the key players in the EU climate tech investment ecosystem – who they are, what their interests are, and how to engage them.\n3.  PESTEL Analysis: This will help us understand the broader EU environment (Political, Economic, Social, Technological, Environmental, Legal) as it pertains to climate tech investment, which can inform your pitch and strategy.\n\nLet's start with the Sequoia Pitch Deck to get your core narrative in shape.\n\nOkay, let's get your core story dialed in using the Sequoia Pitch Deck format. This will help us see where you stand and what might be perceived as \"early\" by investors, both in the US and EU.\n\nTo apply this, I need a bit more detail about your company. Could you provide:\n\n1.  Business Description: Briefly describe your climate tech startup. What problem are you solving, what's your product, what traction do you have, and what are you looking to raise funds for?\n2.  Key Metrics (if any): Any numbers you can share – revenue, growth rate, number of users/customers, team size, previous funding, or the amount you're looking to raise.\n\nOnce I have that, I can structure the pitch deck outline and highlight what investors are really looking for in each section.",
+  "metadata": {
+    "model": "google/gemini-2.5-flash",
+    "tokensIn": 9500,
+    "tokensOut": 480,
+    "frameworks": 1,
+    "searches": 0,
+    "filesRead": 0,
+    "generatedAt": "2026-03-04T18:28:55.050Z",
+    "elapsedSeconds": 8.1
+  }
+}

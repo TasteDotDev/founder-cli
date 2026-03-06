@@ -1,0 +1,25 @@
+{
+  "id": 94,
+  "title": "LLM Wrapper Moat",
+  "slug": "llm-wrapper-moat",
+  "category": "ai",
+  "tags": [
+    "llm",
+    "wrapper",
+    "moat",
+    "defensibility"
+  ],
+  "context": "AI product built on GPT-4, worried about defensibility",
+  "prompt": "We built a sales email generator on top of GPT-4. Works great but we're terrified OpenAI will launch something similar or a competitor will clone us in a weekend. What's our moat?",
+  "response": "That's a very real and common fear in the current AI landscape. Building on top of powerful foundational models like GPT-4 is fast, but it also means the barrier to entry can feel incredibly low. The question of \"what's our moat?\" is critical.\n\nLet's use a few frameworks to help us think through this:\n\n1.  Competitive Moat: This framework directly addresses how businesses can protect their long-term profits from competitive attacks.\n2.  AI-First Product Design: This will help us think beyond just \"GPT-4 wrapper\" and consider how to deeply embed AI in a way that creates unique value and defensibility.\n3.  Disruptive Positioning: This can help us explore how your product might be uniquely positioned in the market, even if the underlying tech is accessible.\n\nI'll apply these frameworks to your situation.\nMy apologies, it seems I used incorrect slugs for two of the frameworks. I'll correct that and re-run. I'll also list the frameworks in the 'strategy' and 'innovation' categories to ensure I'm using the right ones.\nOkay, my apologies for the mix-up with the framework names. I've now got the correct ones.\n\nLet's re-approach your question about your sales email generator's moat using these three frameworks:\n\n1.  Competitive Moat Analysis (moat-analysis): This will help us systematically identify potential sources of defensibility for your business.\n2.  AI-First Product Design (ai-first-product): This framework will push us to think about how your product can leverage AI in a way that creates unique value and is hard to replicate, going beyond just being a \"GPT-4 wrapper.\"\n3.  Disruptive Positioning Map (disruptive-positioning): This will help us understand how your product is positioned in the market relative to existing solutions and potential future competitors, looking for areas where you can disrupt.\n\nHere's the application of these frameworks:\nOkay, let's break down your sales email generator's defensibility using these frameworks. The core challenge is moving beyond being a \"wrapper\" around a powerful LLM to building something truly unique and sticky.\n\n────────────────────────────────────────────────────────────\n\n### Competitive Moat Analysis\n\nCompany: Sales email generator built on GPT-4.\nContext: High risk of replication due to reliance on a public foundational model (GPT-4).\n\n1. Moat Identification\n\n| Moat Type           | Rating    | Rationale",
+  "metadata": {
+    "model": "google/gemini-2.5-flash",
+    "tokensIn": 31400,
+    "tokensOut": 705,
+    "frameworks": 6,
+    "searches": 0,
+    "filesRead": 0,
+    "generatedAt": "2026-03-06T00:48:39.789Z",
+    "elapsedSeconds": 237
+  }
+}

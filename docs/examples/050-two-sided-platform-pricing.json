@@ -1,0 +1,25 @@
+{
+  "id": 50,
+  "title": "Two-Sided Platform Pricing",
+  "slug": "two-sided-platform-pricing",
+  "category": "pricing",
+  "tags": [
+    "platform",
+    "two-sided",
+    "job-board",
+    "climate-tech"
+  ],
+  "context": "Job board for climate tech, charging employers only",
+  "prompt": "We run a climate tech job board. Employers pay $299/post. We get 500 posts/month but candidates want premium features too. Should we charge both sides?",
+  "response": "Okay, this is a classic two-sided marketplace challenge. You've got a clear value proposition for employers, and now candidates are signaling they'd pay for more value.\n\nBefore we dive into how to charge candidates, let's get a clearer picture of what they want and what your concerns are.\n\n1.  What specific \"premium features\" are candidates asking for? (e.g., resume review, direct messaging with employers, application tracking, salary insights, interview prep, early access to jobs?)\n2.  Roughly how many active candidates do you have on the platform? And what's their typical engagement (e.g., how many apply per month, how many visit regularly)?\n3.  What are your main concerns about charging candidates? (e.g., scaring them away, complexity, cannibalizing employer revenue?)",
+  "metadata": {
+    "model": "google/gemini-2.5-flash",
+    "tokensIn": 4200,
+    "tokensOut": 185,
+    "frameworks": 0,
+    "searches": 0,
+    "filesRead": 0,
+    "generatedAt": "2026-03-04T18:45:49.073Z",
+    "elapsedSeconds": 5.5
+  }
+}

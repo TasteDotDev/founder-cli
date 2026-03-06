@@ -1,0 +1,25 @@
+{
+  "id": 54,
+  "title": "Differentiating AI Wrapper",
+  "slug": "differentiating-ai-wrapper",
+  "category": "competition",
+  "tags": [
+    "ai",
+    "wrapper",
+    "moat",
+    "differentiation"
+  ],
+  "context": "Built a GPT wrapper and now everyone has one",
+  "prompt": "We launched an AI customer support chatbot 6 months ago. Now there are 200 competitors doing the same thing with the same models. How do we differentiate?",
+  "response": "That's a tough spot to be in. The AI space is moving incredibly fast, and it's easy for a promising idea to get swamped by a wave of similar solutions. It sounds like you're wrestling with how to carve out a unique space and avoid being just another face in the crowd.\n\nTo help us think through this, I'd suggest we look at a few frameworks that can help us identify potential areas for differentiation and build a more defensible position.\n\n1.  Competitive Moat: This will help us identify potential sources of sustainable competitive advantage beyond just the technology itself.\n2.  Strategy Canvas: This framework will allow us to visualize your current offering against competitors and pinpoint areas where you can differentiate by creating new value or reducing existing, less important value.\n3.  Jobs To Be Done (JTBD): By focusing on the underlying \"job\" your customers are hiring your chatbot to do, we can uncover unmet needs or better ways to solve those jobs, leading to unique product or service offerings.\n\nLet's start with the Competitive Moat framework. This will help us think about what could make your AI customer support chatbot truly unique and hard for others to copy.\n\nMy apologies! It seems I used an incorrect slug for the \"Competitive Moat\" framework. Let me quickly check the available frameworks in the strategy category to find the right one, or a similar alternative.\n\nAh, thank you for your patience! The correct slug for \"Competitive Moat\" is moat-analysis. My apologies for that oversight.\n\nLet's try that again. We'll use the Competitive Moat Analysis framework to identify potential sources of sustainable competitive advantage for your AI customer support chatbot.\n\nOkay, we're on track now. Let's apply the Competitive Moat Analysis framework to your AI customer support chatbot.\n\nTo do this effectively, I need a little more context about your specific chatbot. Could you tell me:\n\n1.  What specific problem does your chatbot solve for customers? (e.g., reduce wait times, answer FAQs, qualify leads, handle complex issues, provide personalized recommendations)\n2.  Who are your primary customers? (e.g., small businesses, large enterprises, specific industries like e-commerce, healthcare, SaaS)\n3.  What are the key features or capabilities of your chatbot that you believe are unique or particularly strong?\n4.  What kind of data does your chatbot primarily use or generate? (e.g., customer conversation history, product knowledge bases, CRM data)\n\nOnce I have this, I can provide a much more tailored and useful analysis.",
+  "metadata": {
+    "model": "google/gemini-2.5-flash",
+    "tokensIn": 22800,
+    "tokensOut": 616,
+    "frameworks": 2,
+    "searches": 0,
+    "filesRead": 0,
+    "generatedAt": "2026-03-04T18:48:23.407Z",
+    "elapsedSeconds": 8.6
+  }
+}

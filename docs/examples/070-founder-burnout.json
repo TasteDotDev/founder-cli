@@ -1,0 +1,25 @@
+{
+  "id": 70,
+  "title": "Founder Burnout Recovery",
+  "slug": "founder-burnout",
+  "category": "team",
+  "tags": [
+    "burnout",
+    "delegation",
+    "wellbeing",
+    "single-point-of-failure"
+  ],
+  "context": "Working 80-hour weeks for 18 months straight",
+  "prompt": "I've been working 80-hour weeks for 18 months. Revenue is growing but I'm running on fumes. I can't take a vacation because everything breaks without me. Help.",
+  "response": "I hear you. 80-hour weeks for 18 months is brutal, and feeling like the whole thing collapses without you is an incredibly tough spot to be in. It sounds like you're not just running a business, you are the business right now, and that's not sustainable.\n\nLet's break this down. We need to tackle two things:\n\n1.  Your personal well-being: Getting you off the fumes and back to a healthy state.\n2.  Business dependency: Structuring things so the business can run without you being the single point of failure, allowing you to actually take that vacation.\n\nTo help us think through this, I'd suggest looking at a couple of frameworks:\n\n*   Founder Burnout Recovery: This will help us identify where you are, what's contributing to the burnout, and concrete steps to start recovering.\n*   Founder Mode: This framework helps founders understand how their role needs to evolve as the company grows, specifically addressing how to delegate, build systems, and empower a team so you're not doing everything yourself.\n\nLet's start with the Founder Burnout Recovery framework to get a handle on your current state.My apologies, it seems I misremembered the exact name of that framework. Let me quickly check the available frameworks in the 'wellbeing' category to find the right one, or a similar one that fits.You're absolutely right, the correct framework is Founder Burnout Recovery Protocol. My apologies for the mix-up.\n\nLet's apply the Founder Burnout Recovery Protocol to start. This will help us diagnose your current state and identify immediate steps for your well-being.\n\nAfter that, we'll move to the Founder Mode framework to address the business dependency issue.Okay, let's apply the Founder Burnout Recovery Protocol to your situation.\n\nFirst, I need a bit more detail from you to make this specific. Please describe:\n\n*   Current State: How are you feeling right now? Be honest about your energy levels, motivation, sleep patterns, your general attitude toward work, and any physical symptoms you're experiencing.\n*   Situation: What do you think are the main drivers of this? Is it fundraising pressure, team issues, product-market fit struggles, personal life stress, or something else?\n\nThe more detail you can provide, the better I can tailor this.",
+  "metadata": {
+    "model": "google/gemini-2.5-flash",
+    "tokensIn": 22300,
+    "tokensOut": 572,
+    "frameworks": 2,
+    "searches": 0,
+    "filesRead": 0,
+    "generatedAt": "2026-03-04T19:00:05.949Z",
+    "elapsedSeconds": 7.1
+  }
+}

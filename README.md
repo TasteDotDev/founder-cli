@@ -1,4 +1,5 @@
 <p align="center">
+  <img src="assets/mascot.svg" alt="Founder CLI mascot" width="120"/><br>
   <img src="assets/banner.svg" alt="Founder Skills — 568 business frameworks, one slash command" width="100%"/>
 </p>
 <p align="center">
@@ -86,6 +87,34 @@ That's it. `/founder` figures out you need Four Fits + Growth Accounting + Unit 
 <p align="center">
   <img src="assets/terminal-mockup.svg" alt="Terminal showing /founder in action" width="100%"/>
 </p>
+
+---
+
+## Examples
+
+112 real prompts, real Founder CLI output. Here are a few:
+
+```
+founder "I have 200 beta users for my AI tutoring app. 30% come back weekly but nobody's paying yet. How do I know if I have PMF?"
+```
+
+```
+founder "We're raising pre-seed for our AI code review tool. $10K MRR, growing 25% MoM. Need help with our pitch deck."
+```
+
+```
+founder "Our competitor just raised $50M. We're bootstrapped at $400K ARR. What's my playbook?"
+```
+
+```
+founder "We built a sales email generator on GPT-4. What's our moat against OpenAI and clones?"
+```
+
+```
+founder "50K free users, 1.2% paid conversion, $12/mo price point. How do I double conversion?"
+```
+
+**[Browse all 112 examples with real output &rarr;](docs/examples.html)**
 
 ---
 

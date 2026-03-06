@@ -1,0 +1,25 @@
+{
+  "id": 76,
+  "title": "Pivot to Analytics",
+  "slug": "pivot-to-analytics",
+  "category": "product",
+  "tags": [
+    "pivot",
+    "analytics",
+    "pmf",
+    "product-strategy"
+  ],
+  "context": "Current product isn't working, adjacent opportunity looks better",
+  "prompt": "We've been building a project management tool for 18 months. $30K MRR but flat for 6 months. Our analytics dashboard feature gets the most praise. Should we pivot to just analytics?",
+  "response": "Okay, I hear you. Flat MRR for 6 months on a product you've been building for 18 months is tough, and it's smart to look at what's working. The analytics dashboard getting praise is a strong signal.\n\nBefore we dive into whether to pivot, let's get a bit more specific on why growth has stalled and what that analytics feature really does.\n\n1.  Why do you think growth has stalled? Is it harder to acquire new customers, are existing customers churning, or are you struggling to monetize them more effectively?\n2.  Who are your current customers for the project management tool? What kind of teams or businesses use it, and what's their primary \"job to be done\" with your tool?\n3.  What specific problems does your analytics dashboard solve for users? What kind of insights do they get from it, and what actions do they take based on those insights?",
+  "metadata": {
+    "model": "google/gemini-2.5-flash",
+    "tokensIn": 4200,
+    "tokensOut": 201,
+    "frameworks": 0,
+    "searches": 0,
+    "filesRead": 0,
+    "generatedAt": "2026-03-04T19:01:26.562Z",
+    "elapsedSeconds": 5
+  }
+}

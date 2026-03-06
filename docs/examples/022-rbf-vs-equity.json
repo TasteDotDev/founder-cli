@@ -1,0 +1,25 @@
+{
+  "id": 22,
+  "title": "Revenue-Based Financing vs Equity",
+  "slug": "rbf-vs-equity",
+  "category": "fundraising",
+  "tags": [
+    "rbf",
+    "financing",
+    "ecommerce",
+    "working-capital"
+  ],
+  "context": "E-commerce brand doing $2M ARR, need working capital",
+  "prompt": "We're an e-commerce brand doing $2M ARR. Need $300K for inventory. Should I do revenue-based financing, a line of credit, or give up equity?",
+  "response": "Okay, I hear you. You're an e-commerce brand at $2M ARR, and you need $300K to fund inventory. This is a classic growth challenge, and choosing the right financing path is crucial.\n\nTo help us think through this, I'd suggest we use a few frameworks:\n\n1.  Cost-Benefit Analysis: To break down the financial implications, risks, and upsides of each option.\n2.  Decision Matrix: To systematically compare the options against criteria that matter most to you.\n\nBefore we dive into the frameworks, a quick clarifying question:\n\n*   What are your typical gross margins on the inventory you're looking to purchase? Understanding this will help us assess how much room you have for financing costs.\n\nOnce I have that, we can start applying the frameworks.",
+  "metadata": {
+    "model": "google/gemini-2.5-flash",
+    "tokensIn": 4200,
+    "tokensOut": 176,
+    "frameworks": 0,
+    "searches": 0,
+    "filesRead": 0,
+    "generatedAt": "2026-03-04T21:44:37.011Z",
+    "elapsedSeconds": 3.5
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "id": 38,
+  "title": "Reactivating Churned Users",
+  "slug": "reactivating-churned-users",
+  "category": "growth",
+  "tags": [
+    "churn",
+    "win-back",
+    "reactivation",
+    "saas"
+  ],
+  "context": "SaaS tool with 2K churned accounts from the last year",
+  "prompt": "We have 2,000 churned accounts from the past year. Our product has improved a lot since they left. How do I win them back?",
+  "response": "Okay, 2,000 churned accounts is a significant pool. Winning them back can be a high-leverage activity, especially if your product has genuinely improved.\n\nBefore we dive into specific strategies, let's get a clearer picture. To help you structure your thinking and maximize your chances of success, I need a bit more context.\n\n1.  Why did they churn? What were the top 2-3 reasons customers left in the past year? (e.g., missing features, pricing, poor support, performance issues, changed needs, went out of business)\n2.  What are the specific product improvements? How do these improvements directly address the reasons customers churned?\n3.  Do you have data on these churned accounts? For example, do you know their:\n    *   Subscription tier or plan type?\n    *   Last active date?\n    *   Usage patterns before churn?\n    *   Industry or company size?\n\nOnce I have this, we can look at frameworks like Customer Segmentation to group these accounts, and then Go-To-Market to craft a targeted win-back campaign.",
+  "metadata": {
+    "model": "google/gemini-2.5-flash",
+    "tokensIn": 4200,
+    "tokensOut": 249,
+    "frameworks": 0,
+    "searches": 0,
+    "filesRead": 0,
+    "generatedAt": "2026-03-04T18:39:36.417Z",
+    "elapsedSeconds": 5.2
+  }
+}

@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Examples — Founder CLI</title>
+  <meta name="description" content="112 real use cases for Founder CLI. Search by category, keyword, or tag.">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#0b0b0d">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%2310a37f'/%3E%3Cstop offset='1' stop-color='%230a84ff'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='6' y='6' width='52' height='52' rx='14' fill='%230b0b0d' stroke='rgba(255,255,255,0.18)'/%3E%3Cpath d='M22 44V20h14a8 8 0 0 1 0 16H26v8h-4zm4-12h10a4 4 0 0 0 0-8H26v8z' fill='url(%23g)'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0b0b0d;
+      --bg2: #070708;
+      --surface: rgba(255,255,255,0.04);
+      --surface2: rgba(255,255,255,0.06);
+      --border: rgba(255,255,255,0.08);
+      --border-light: rgba(255,255,255,0.14);
+      --text: rgba(255,255,255,0.92);
+      --text-secondary: rgba(255,255,255,0.68);
+      --text-tertiary: rgba(255,255,255,0.44);
+      --accent: #10a37f;
+      --accent2: #0a84ff;
+      --blue: #60a5fa;
+      --green: #4ade80;
+      --purple: #c084fc;
+      --orange: #fbbf24;
+      --pink: #f472b6;
+      --radius: 14px;
+      --radius-sm: 10px;
+      --shadow-soft: 0 10px 40px rgba(0,0,0,0.35);
+      --font: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', sans-serif;
+      --mono: ui-monospace, 'SF Mono', 'JetBrains Mono', monospace;
+    }
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{-webkit-font-smoothing:antialiased;scroll-behavior:smooth}
+    body{
+      font-family:var(--font);
+      background:
+        radial-gradient(1200px 600px at 50% -10%, rgba(16,163,127,0.08), transparent 55%),
+        linear-gradient(var(--bg), var(--bg2));
+      color:var(--text);
+      overflow-x:hidden;
+      min-height:100vh;
+    }
+    a{color:var(--blue);text-decoration:none}
+    a:hover{text-decoration:underline}
+    ::selection{background:rgba(16,163,127,0.22)}
+
+    /* Nav */
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(11,11,13,0.72);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid var(--border)}
+    .nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px;padding:0 1.25rem}
+    .nav-logo{font-size:0.95rem;font-weight:750;color:var(--text);display:flex;align-items:center;gap:0.55rem;letter-spacing:-0.02em}
+    .nav-logo:hover{text-decoration:none}
+    .logo-mark{width:22px;height:22px;border-radius:7px;background:linear-gradient(135deg, rgba(16,163,127,1), rgba(10,132,255,1));box-shadow:0 8px 24px rgba(16,163,127,0.18)}
+    .nav-links{display:flex;gap:2rem;align-items:center}
+    .nav-links a{color:var(--text-secondary);font-size:0.82rem;font-weight:600;transition:color 0.15s}
+    .nav-links a:hover{color:var(--text);text-decoration:none}
+
+    /* Header */
+    .page-header{padding:7rem 1.25rem 2rem;text-align:center;max-width:800px;margin:0 auto}
+    .page-header h1{font-size:clamp(2rem,4.5vw,3rem);font-weight:820;letter-spacing:-0.04em;line-height:1.1;margin-bottom:0.75rem}
+    .page-header p{font-size:1rem;color:var(--text-secondary);line-height:1.6}
+
+    /* Search + Filters */
+    .controls{max-width:1200px;margin:0 auto;padding:0 1.25rem 1rem}
+    .search-bar{position:relative;margin-bottom:1rem}
+    .search-bar input{
+      width:100%;
+      padding:0.85rem 1.2rem 0.85rem 3rem;
+      background:var(--surface);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      color:var(--text);
+      font-size:0.92rem;
+      font-family:var(--font);
+      outline:none;
+      transition:border-color 0.15s;
+    }
+    .search-bar input:focus{border-color:var(--border-light)}
+    .search-bar input::placeholder{color:var(--text-tertiary)}
+    .search-bar svg{position:absolute;left:1rem;top:50%;transform:translateY(-50%);width:18px;height:18px;color:var(--text-tertiary)}
+
+    .filters{display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.5rem}
+    .filter-btn{
+      padding:0.4rem 0.85rem;
+      border-radius:999px;
+      border:1px solid var(--border);
+      background:transparent;
+      color:var(--text-secondary);
+      font-size:0.78rem;
+      font-weight:600;
+      font-family:var(--font);
+      cursor:pointer;
+      transition:all 0.15s;
+    }
+    .filter-btn:hover{border-color:var(--border-light);color:var(--text)}
+    .filter-btn.active{background:rgba(16,163,127,0.15);border-color:rgba(16,163,127,0.4);color:var(--green)}
+    .result-count{font-size:0.8rem;color:var(--text-tertiary);padding:0.5rem 0}
+
+    /* Example Cards */
+    .examples-grid{
+      max-width:1200px;
+      margin:0 auto;
+      padding:0 1.25rem 4rem;
+      display:grid;
+      grid-template-columns:1fr;
+      gap:0.75rem;
+    }
+    .example-card{
+      background:var(--surface);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      overflow:hidden;
+      transition:border-color 0.15s, background 0.15s;
+      box-shadow:var(--shadow-soft);
+    }
+    .example-card:hover{border-color:var(--border-light);background:rgba(255,255,255,0.055)}
+
+    .card-header{
+      padding:1.25rem 1.5rem;
+      cursor:pointer;
+      display:flex;
+      align-items:flex-start;
+      gap:1rem;
+    }
+    .card-header:hover{background:rgba(255,255,255,0.02)}
+
+    .card-number{
+      font-size:0.72rem;
+      font-weight:800;
+      color:var(--text-tertiary);
+      min-width:2rem;
+      padding-top:0.15rem;
+    }
+    .card-info{flex:1;min-width:0}
+    .card-title{font-size:1rem;font-weight:700;margin-bottom:0.3rem;letter-spacing:-0.01em}
+    .card-context{font-size:0.82rem;color:var(--text-secondary);line-height:1.4;margin-bottom:0.5rem}
+    .card-prompt{
+      font-family:var(--mono);
+      font-size:0.78rem;
+      color:var(--green);
+      background:rgba(0,0,0,0.3);
+      padding:0.5rem 0.75rem;
+      border-radius:8px;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+    .card-tags{display:flex;gap:0.35rem;flex-wrap:wrap;margin-top:0.5rem}
+    .tag{
+      font-size:0.68rem;
+      font-weight:600;
+      padding:0.15rem 0.5rem;
+      border-radius:999px;
+      background:rgba(255,255,255,0.04);
+      border:1px solid var(--border);
+      color:var(--text-tertiary);
+    }
+    .card-chevron{
+      color:var(--text-tertiary);
+      transition:transform 0.2s;
+      flex-shrink:0;
+      margin-top:0.15rem;
+    }
+    .example-card.open .card-chevron{transform:rotate(180deg)}
+
+    .card-body{
+      display:none;
+      padding:0 1.5rem 1.5rem 4.5rem;
+      border-top:1px solid var(--border);
+    }
+    .example-card.open .card-body{display:block}
+
+    .card-body .prompt-full{
+      font-family:var(--mono);
+      font-size:0.82rem;
+      background:rgba(0,0,0,0.35);
+      border:1px solid var(--border);
+      border-radius:var(--radius-sm);
+      padding:1rem 1.25rem;
+      margin:1rem 0;
+      color:var(--text);
+      white-space:pre-wrap;
+      word-break:break-word;
+      position:relative;
+    }
+    .prompt-full .prompt-label{
+      font-family:var(--font);
+      font-size:0.68rem;
+      font-weight:700;
+      text-transform:uppercase;
+      letter-spacing:0.06em;
+      color:var(--text-tertiary);
+      display:block;
+      margin-bottom:0.5rem;
+    }
+    .prompt-full .copy-btn{
+      position:absolute;
+      top:0.75rem;
+      right:0.75rem;
+      background:rgba(255,255,255,0.08);
+      border:1px solid var(--border);
+      border-radius:8px;
+      padding:0.3rem 0.6rem;
+      font-size:0.7rem;
+      font-weight:600;
+      color:var(--text-secondary);
+      cursor:pointer;
+      font-family:var(--font);
+      transition:all 0.15s;
+    }
+    .prompt-full .copy-btn:hover{background:rgba(255,255,255,0.12);color:var(--text)}
+
+    .response-section{margin-top:1rem}
+    .response-label{
+      font-size:0.72rem;
+      font-weight:700;
+      text-transform:uppercase;
+      letter-spacing:0.06em;
+      color:var(--text-tertiary);
+      margin-bottom:0.5rem;
+    }
+    .response-content{
+      font-size:0.88rem;
+      line-height:1.7;
+      color:var(--text-secondary);
+    }
+    .response-content h1,.response-content h2,.response-content h3,.response-content h4{
+      color:var(--text);
+      font-weight:700;
+      margin:1.2rem 0 0.5rem;
+    }
+    .response-content h2{font-size:1.1rem}
+    .response-content h3{font-size:0.95rem}
+    .response-content strong{color:var(--text)}
+    .response-content code{
+      font-family:var(--mono);
+      font-size:0.85em;
+      background:rgba(255,255,255,0.06);
+      padding:0.15em 0.4em;
+      border-radius:6px;
+    }
+    .response-content pre{
+      background:rgba(0,0,0,0.3);
+      border:1px solid var(--border);
+      border-radius:8px;
+      padding:0.75rem 1rem;
+      overflow-x:auto;
+      margin:0.75rem 0;
+    }
+    .response-content pre code{background:none;padding:0}
+    .response-content ul,.response-content ol{margin:0.5rem 0;padding-left:1.5rem}
+    .response-content li{margin:0.25rem 0}
+    .response-content blockquote{
+      border-left:3px solid var(--border-light);
+      padding-left:1rem;
+      color:var(--text-tertiary);
+      font-style:italic;
+      margin:0.75rem 0;
+    }
+    .response-content table{
+      width:100%;
+      border-collapse:collapse;
+      margin:0.75rem 0;
+      font-size:0.82rem;
+    }
+    .response-content th,.response-content td{
+      padding:0.5rem 0.75rem;
+      border:1px solid var(--border);
+      text-align:left;
+    }
+    .response-content th{
+      background:rgba(255,255,255,0.04);
+      font-weight:700;
+      color:var(--text);
+    }
+
+    .card-meta{
+      display:flex;
+      gap:1rem;
+      margin-top:1rem;
+      font-size:0.75rem;
+      color:var(--text-tertiary);
+    }
+    .card-meta span{display:flex;align-items:center;gap:0.3rem}
+
+    /* Loading */
+    .loading{text-align:center;padding:4rem 2rem;color:var(--text-tertiary)}
+    .loading .spinner{
+      width:32px;height:32px;
+      border:3px solid var(--border);
+      border-top-color:var(--accent);
+      border-radius:50%;
+      animation:spin 0.8s linear infinite;
+      margin:0 auto 1rem;
+    }
+    @keyframes spin{to{transform:rotate(360deg)}}
+
+    /* Empty state */
+    .empty-state{text-align:center;padding:4rem 2rem;color:var(--text-tertiary)}
+    .empty-state h3{font-size:1.1rem;color:var(--text-secondary);margin-bottom:0.5rem}
+
+    /* Category colors */
+    .cat-early-stage{color:var(--green)}
+    .cat-fundraising{color:var(--orange)}
+    .cat-growth{color:var(--blue)}
+    .cat-pricing{color:var(--purple)}
+    .cat-competition{color:var(--pink)}
+    .cat-team{color:#f97316}
+    .cat-product{color:#06b6d4}
+    .cat-operations{color:#a3a3a3}
+    .cat-ai{color:#818cf8}
+    .cat-decisions{color:#f43f5e}
+
+    /* Responsive */
+    @media(max-width:640px){
+      .page-header{padding:6rem 1.25rem 1.5rem}
+      .card-header{padding:1rem}
+      .card-body{padding:0 1rem 1rem 1rem}
+      .card-number{display:none}
+      .nav-links a:not(:last-child){display:none}
+    }
+    @media (prefers-reduced-motion: reduce){
+      html{scroll-behavior:auto}
+      *{transition:none !important;animation:none !important}
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html"><span class="logo-mark" aria-hidden="true"></span> Founder</a>
+    <div class="nav-links">
+      <a href="index.html#features">Features</a>
+      <a href="index.html#frameworks">Frameworks</a>
+      <a href="https://github.com/TasteDotDev/founder-cli">GitHub</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="page-header">
+    <h1>112 Real Use Cases</h1>
+    <p>Every prompt run through Founder CLI with real output. Search, filter, copy, and use.</p>
+  </div>
+
+  <div class="controls">
+    <div class="search-bar">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"/>
+      </svg>
+      <input type="text" id="search" placeholder="Search examples... (e.g. pricing, AI moat, Series A, churn)" autocomplete="off">
+    </div>
+    <div class="filters" id="filters"></div>
+    <div class="result-count" id="result-count"></div>
+  </div>
+
+  <div class="examples-grid" id="examples-grid">
+    <div class="loading">
+      <div class="spinner"></div>
+      Loading examples...
+    </div>
+  </div>
+</main>
+
+<script>
+// Category metadata
+const CATEGORIES = {
+  'early-stage': { label: 'Early Stage', class: 'cat-early-stage' },
+  'fundraising': { label: 'Fundraising', class: 'cat-fundraising' },
+  'growth': { label: 'Growth', class: 'cat-growth' },
+  'pricing': { label: 'Pricing', class: 'cat-pricing' },
+  'competition': { label: 'Competition', class: 'cat-competition' },
+  'team': { label: 'Team & Hiring', class: 'cat-team' },
+  'product': { label: 'Product & PMF', class: 'cat-product' },
+  'operations': { label: 'Operations', class: 'cat-operations' },
+  'ai': { label: 'AI Scenarios', class: 'cat-ai' },
+  'decisions': { label: 'Decisions', class: 'cat-decisions' },
+};
+
+let allExamples = [];
+let activeCategory = null;
+
+// Simple markdown to HTML (handles basics)
+function md(text) {
+  if (!text) return '<em style="color:var(--text-tertiary)">Response not yet generated. Run the generation script to populate.</em>';
+
+  let html = text
+    // Code blocks
+    .replace(/```(\w*)\n([\s\S]*?)```/g, (_, lang, code) =>
+      '<pre><code>' + escapeHtml(code.trim()) + '</code></pre>')
+    // Headers
+    .replace(/^#### (.+)$/gm, '<h4>$1</h4>')
+    .replace(/^### (.+)$/gm, '<h3>$1</h3>')
+    .replace(/^## (.+)$/gm, '<h2>$1</h2>')
+    .replace(/^# (.+)$/gm, '<h1>$1</h1>')
+    // Horizontal rules
+    .replace(/^[-─]{3,}$/gm, '<hr style="border:none;border-top:1px solid var(--border);margin:1rem 0">')
+    // Bold + italic
+    .replace(/\*\*\*(.+?)\*\*\*/g, '<strong><em>$1</em></strong>')
+    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+    .replace(/\*(.+?)\*/g, '<em>$1</em>')
+    // Inline code
+    .replace(/`([^`]+)`/g, '<code>$1</code>')
+    // Blockquotes
+    .replace(/^>\s?(.+)$/gm, '<blockquote>$1</blockquote>')
+    // Unordered lists
+    .replace(/^[\s]*[-*]\s+(.+)$/gm, '<li>$1</li>')
+    // Ordered lists
+    .replace(/^[\s]*\d+\.\s+(.+)$/gm, '<li>$1</li>')
+    // Tables (basic)
+    .replace(/^\|(.+)\|$/gm, (match) => {
+      const cells = match.split('|').filter(c => c.trim());
+      if (cells.every(c => /^[-:\s]+$/.test(c.trim()))) return '<!-- separator -->';
+      const tag = 'td';
+      return '<tr>' + cells.map(c => `<${tag}>${c.trim()}</${tag}>`).join('') + '</tr>';
+    });
+
+  // Wrap consecutive <li> in <ul>
+  html = html.replace(/((?:<li>.*<\/li>\n?)+)/g, '<ul>$1</ul>');
+  // Wrap consecutive <tr> in <table>
+  html = html.replace(/((?:<tr>.*<\/tr>\n?)+)/g, (m) => {
+    const cleaned = m.replace(/<!-- separator -->\n?/g, '');
+    // Make first row header
+    return '<table>' + cleaned.replace(/<tr>(.*?)<\/tr>/, (_, inner) =>
+      '<tr>' + inner.replace(/<td>/g, '<th>').replace(/<\/td>/g, '</th>') + '</tr>'
+    ) + '</table>';
+  });
+
+  // Paragraphs
+  html = html
+    .split('\n\n')
+    .map(block => {
+      block = block.trim();
+      if (!block) return '';
+      if (/^<[hupoltb]/.test(block)) return block;
+      return '<p>' + block + '</p>';
+    })
+    .join('\n');
+
+  return html;
+}
+
+function escapeHtml(s) {
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+// Load examples from JSON files
+async function loadExamples() {
+  // Try loading the index first, fall back to loading individual files
+  const examples = [];
+
+  // Load all 112 files
+  const promises = [];
+  for (let i = 1; i <= 112; i++) {
+    const id = String(i).padStart(3, '0');
+    promises.push(
+      fetch(`examples/${id}*.json`)
+        .catch(() => null)
+    );
+  }
+
+  // Use a manifest approach: try to fetch all known slugs
+  const SLUGS = [
+    'ai-tutoring-pmf','solo-saas-pricing','marketplace-chicken-egg','climate-hardware-gtm',
+    'validate-without-building','consumer-vs-b2b','immigrant-founder-visa','regulated-industry-launch',
+    'finding-technical-cofounder','physical-product-validation','pet-services-marketplace',
+    'agency-to-product','boring-vertical-saas','open-source-commercial','too-many-ideas',
+    'pre-seed-ai-dev-tool','series-a-narrative-fintech','safe-note-terms','angel-round-strategy',
+    'bootstrap-to-vc','pitch-deck-no-meetings','rbf-vs-equity','vc-meeting-prep',
+    'bridge-round-missed-targets','crowdfunding-hardware','eu-investor-outreach',
+    'strategic-vs-financial-investor','plg-developer-tool','cold-email-construction',
+    'tiktok-growth-d2c','community-led-growth','viral-loop-design','seo-budget',
+    'partnership-distribution','failed-referral-program','niche-to-mainstream','event-led-growth',
+    'reactivating-churned-users','linkedin-b2b-buyers','outbound-sales-zero','us-to-eu-expansion',
+    'product-hunt-launch','usage-based-api-pricing','freemium-conversion','enterprise-tier-pricing',
+    'ai-product-pricing','price-increase-strategy','marketplace-take-rate','monetize-chrome-extension',
+    'two-sided-platform-pricing','annual-plan-conversion','credit-based-api-pricing',
+    'competing-against-salesforce','differentiating-ai-wrapper','blue-ocean-email-marketing',
+    'responding-to-price-war','competing-with-oss','network-effects-entry','competitive-intelligence',
+    'creating-new-category','patent-strategy-ai','bootstrapped-vs-funded','first-10-hires',
+    'cofounder-equity-split','remote-culture-scale','engineer-vs-sales-hire','firing-cofounder',
+    'building-advisory-board','startup-compensation','founder-burnout','engineering-culture',
+    'diversity-hiring','superhuman-pmf-howto','churn-crisis','feature-prioritization',
+    'pivot-to-analytics','going-upmarket','onboarding-dropoff','rewrite-vs-refactor',
+    'mobile-app-decision','analytics-zero','ab-testing-low-traffic','product-to-platform',
+    'user-research-zero-budget','soc2-compliance','infrastructure-scaling',
+    'payment-processor-selection','hiring-internationally-eor','scaling-support','llc-vs-ccorp',
+    'security-incident-response','burn-rate-optimization','ai-agent-marketplace-gtm',
+    'llm-wrapper-moat','ai-unit-economics','fine-tuning-vs-rag','ai-trust-hallucination',
+    'ai-product-roadmap','adding-ai-to-saas','ai-startup-team','navigating-ai-regulation',
+    'ai-data-flywheel','ai-partnership-strategy','ai-consulting-to-product','pivot-or-persevere',
+    'raise-vs-bootstrap','acquihire-evaluation','graceful-shutdown','sell-or-keep-building',
+    'market-downturn-response','new-product-vs-deeper','nocode-to-code-migration'
+  ];
+
+  const fetches = SLUGS.map((slug, i) => {
+    const id = String(i + 1).padStart(3, '0');
+    return fetch(`examples/${id}-${slug}.json`)
+      .then(r => r.ok ? r.json() : null)
+      .catch(() => null);
+  });
+
+  const results = await Promise.all(fetches);
+  for (const r of results) {
+    if (r) examples.push(r);
+  }
+
+  return examples.sort((a, b) => a.id - b.id);
+}
+
+function renderFilters() {
+  const container = document.getElementById('filters');
+  const allBtn = document.createElement('button');
+  allBtn.className = 'filter-btn active';
+  allBtn.textContent = `All (${allExamples.length})`;
+  allBtn.onclick = () => { activeCategory = null; applyFilters(); updateFilterUI(); };
+  container.appendChild(allBtn);
+
+  const counts = {};
+  allExamples.forEach(e => { counts[e.category] = (counts[e.category] || 0) + 1; });
+
+  for (const [key, meta] of Object.entries(CATEGORIES)) {
+    if (!counts[key]) continue;
+    const btn = document.createElement('button');
+    btn.className = 'filter-btn';
+    btn.dataset.category = key;
+    btn.textContent = `${meta.label} (${counts[key]})`;
+    btn.onclick = () => {
+      activeCategory = activeCategory === key ? null : key;
+      applyFilters();
+      updateFilterUI();
+    };
+    container.appendChild(btn);
+  }
+}
+
+function updateFilterUI() {
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    if (!btn.dataset.category) {
+      btn.classList.toggle('active', !activeCategory);
+    } else {
+      btn.classList.toggle('active', btn.dataset.category === activeCategory);
+    }
+  });
+}
+
+function applyFilters() {
+  const query = document.getElementById('search').value.toLowerCase().trim();
+  const grid = document.getElementById('examples-grid');
+  const countEl = document.getElementById('result-count');
+
+  let filtered = allExamples;
+
+  if (activeCategory) {
+    filtered = filtered.filter(e => e.category === activeCategory);
+  }
+
+  if (query) {
+    filtered = filtered.filter(e => {
+      const text = [
+        e.title, e.context, e.prompt, e.category,
+        ...(e.tags || []),
+        CATEGORIES[e.category]?.label || ''
+      ].join(' ').toLowerCase();
+      return query.split(/\s+/).every(word => text.includes(word));
+    });
+  }
+
+  countEl.textContent = `${filtered.length} of ${allExamples.length} examples`;
+  renderExamples(filtered);
+}
+
+function renderExamples(examples) {
+  const grid = document.getElementById('examples-grid');
+
+  if (examples.length === 0) {
+    grid.innerHTML = `
+      <div class="empty-state">
+        <h3>No examples match your search</h3>
+        <p>Try different keywords or clear the filters</p>
+      </div>`;
+    return;
+  }
+
+  grid.innerHTML = examples.map(ex => {
+    const cat = CATEGORIES[ex.category] || { label: ex.category, class: '' };
+    const hasResponse = ex.response && ex.response.length > 50;
+
+    return `
+    <div class="example-card" data-id="${ex.id}">
+      <div class="card-header" onclick="toggleCard(this)">
+        <div class="card-number">#${ex.id}</div>
+        <div class="card-info">
+          <div class="card-title">
+            <span class="${cat.class}" style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;margin-right:0.4rem">${cat.label}</span>
+            ${escapeHtml(ex.title)}
+          </div>
+          <div class="card-context">${escapeHtml(ex.context)}</div>
+          <div class="card-prompt">founder "${escapeHtml(truncate(ex.prompt, 100))}"</div>
+          <div class="card-tags">${(ex.tags || []).map(t => `<span class="tag">${t}</span>`).join('')}</div>
+        </div>
+        <svg class="card-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="m19 9-7 7-7-7"/>
+        </svg>
+      </div>
+      <div class="card-body">
+        <div class="prompt-full">
+          <span class="prompt-label">Prompt</span>
+          <button class="copy-btn" onclick="event.stopPropagation();copyPrompt(this, ${JSON.stringify(JSON.stringify('founder "' + ex.prompt + '"'))})">Copy</button>
+          founder "${escapeHtml(ex.prompt)}"
+        </div>
+        <div class="response-section">
+          <div class="response-label">Founder CLI Response</div>
+          <div class="response-content">${md(ex.response)}</div>
+        </div>
+        ${hasResponse && ex.metadata ? `
+        <div class="card-meta">
+          <span>${ex.metadata.model || 'unknown'}</span>
+          ${ex.metadata.frameworks ? `<span>${ex.metadata.frameworks} frameworks</span>` : ''}
+          ${ex.metadata.searches ? `<span>${ex.metadata.searches} searches</span>` : ''}
+          ${ex.metadata.tokensIn ? `<span>${formatTokens(ex.metadata.tokensIn)} in → ${formatTokens(ex.metadata.tokensOut)} out</span>` : ''}
+        </div>` : ''}
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function truncate(s, n) {
+  return s.length > n ? s.slice(0, n) + '...' : s;
+}
+
+function formatTokens(n) {
+  if (!n) return '0';
+  return n >= 1000 ? (n / 1000).toFixed(1) + 'k' : String(n);
+}
+
+function toggleCard(header) {
+  header.parentElement.classList.toggle('open');
+}
+
+function copyPrompt(btn, text) {
+  navigator.clipboard.writeText(JSON.parse(text));
+  btn.textContent = 'Copied!';
+  setTimeout(() => btn.textContent = 'Copy', 1500);
+}
+
+// Init
+(async () => {
+  allExamples = await loadExamples();
+
+  if (allExamples.length === 0) {
+    document.getElementById('examples-grid').innerHTML = `
+      <div class="empty-state">
+        <h3>No examples generated yet</h3>
+        <p>Run <code style="font-family:var(--mono);background:var(--surface);padding:0.2em 0.5em;border-radius:6px">tsx scripts/generate-examples.ts</code> to generate example responses.</p>
+      </div>`;
+    return;
+  }
+
+  renderFilters();
+  applyFilters();
+
+  document.getElementById('search').addEventListener('input', () => {
+    applyFilters();
+  });
+})();
+</script>
+
+</body>
+</html>

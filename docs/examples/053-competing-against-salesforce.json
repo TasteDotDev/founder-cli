@@ -1,0 +1,25 @@
+{
+  "id": 53,
+  "title": "Competing Against Salesforce",
+  "slug": "competing-against-salesforce",
+  "category": "competition",
+  "tags": [
+    "competition",
+    "crm",
+    "vertical-saas",
+    "real-estate"
+  ],
+  "context": "Small CRM startup competing against Salesforce in a vertical",
+  "prompt": "We built a CRM specifically for real estate agents. Salesforce just launched a real estate vertical. We have 500 customers to their infinity. How do we survive?",
+  "response": "This is a tough spot, but not unwinnable. Salesforce is a giant, but giants are often slow and generalized. Your 500 customers mean you have something valuable.\n\nLet's break this down using a few frameworks to see where you can build a defensible position. I'll start with Competitive Moat to identify potential areas of strength, then Disruptive Positioning to see how you might outmaneuver them, and finally, Strategy Canvas to visualize the differences.\n\nMy apologies, it seems I misremembered the exact name of the \"Competitive Moat\" framework. Let me quickly check the available frameworks in the 'strategy' category to ensure I use the correct one.Ah, my apologies again. The correct framework for competitive advantage is Competitive Moat Analysis. I'll use that, along with Disruptive Positioning Map and Strategy Canvas.\n\nHere's how we'll approach this:\n\n1.  Competitive Moat Analysis: We'll identify what makes your CRM sticky and hard to replicate, even for a giant like Salesforce.\n2.  Disruptive Positioning Map: We'll look for areas where Salesforce might be over-serving or under-serving the real estate agent market, creating an opening for you.\n3.  Strategy Canvas: We'll visually compare your offering against Salesforce's to pinpoint where you can differentiate.\n\nLet's start with the Competitive Moat Analysis.\n\nOkay, let's apply the Competitive Moat Analysis to your CRM for real estate agents, considering Salesforce's new vertical.\n\n### Competitive Moat Analysis: Your Real Estate CRM vs. Salesforce\n\nCompany: Your CRM for real estate agents\nContext: 500 customers, Salesforce (a much larger competitor) just launched a real estate vertical.\n\n────────────────────────────────────────────────────────────\n\n1. Moat Identification\n\n| Moat Type           | Assessment | Notes",
+  "metadata": {
+    "model": "google/gemini-2.5-flash",
+    "tokensIn": 22500,
+    "tokensOut": 461,
+    "frameworks": 2,
+    "searches": 0,
+    "filesRead": 0,
+    "generatedAt": "2026-03-06T00:32:50.153Z",
+    "elapsedSeconds": 242.7
+  }
+}

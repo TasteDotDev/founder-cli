@@ -1,0 +1,25 @@
+{
+  "id": 28,
+  "title": "PLG for Developer Tool",
+  "slug": "plg-developer-tool",
+  "category": "growth",
+  "tags": [
+    "plg",
+    "developer-tool",
+    "conversion",
+    "freemium"
+  ],
+  "context": "Developer observability tool with 2K free users, 40 paying",
+  "prompt": "We have a developer observability tool. 2K free users, 40 paying ($99/mo). Free-to-paid conversion is 2%. How do I build a real PLG motion?",
+  "response": "Okay, I hear you. You've got a developer observability tool with a solid free user base, but the free-to-paid conversion is sitting at 2%. You want to build a real Product-Led Growth (PLG) motion. That's a common challenge, especially with developer tools where users often value utility over features.\n\nTo tackle this, we'll use a few frameworks to structure our thinking:\n\n1.  Product-Led Growth (PLG) Playbook: This will give us a comprehensive roadmap for designing and optimizing your PLG strategy.\n2.  Unit Economics Analysis: We need to understand the financial health of your current conversion and what a successful PLG motion needs to achieve.\n3.  Customer Journey Mapping: To improve conversion, we need to deeply understand your users' path from free to paid, identifying where they get stuck or drop off.\n4.  North Star Metric Framework: This will help us define the single most important metric that drives both user value and business growth, aligning your team's efforts.\n\nLet's start by applying the Product-Led Growth (PLG) Playbook.Okay, let's break down your situation using the Product-Led Growth (PLG) Playbook.\n\n### Product-Led Growth (PLG) Playbook\n\nProduct Description: You have a developer observability tool. This implies a technical user base, likely valuing performance, debugging capabilities, and integration with their existing workflows. Your current GTM is likely a mix, but the 2K free users suggest a strong organic or self-serve acquisition channel already exists.\n\nCurrent Metrics:\n*   2,000 free users\n*   40 paying users\n*   $99/month ARPU (Average Revenue Per User)\n*   2% free-to-paid conversion (40 / 2000)\n\n────────────────────────────────────────────────────────────\n\n1. PLG Flywheel\n\nLet's map out the stages for your developer observability tool:\n\n| Stage      | Key Actions (User)                               | Metrics                                   | Conversion Levers",
+  "metadata": {
+    "model": "google/gemini-2.5-flash",
+    "tokensIn": 27400,
+    "tokensOut": 524,
+    "frameworks": 1,
+    "searches": 0,
+    "filesRead": 0,
+    "generatedAt": "2026-03-06T00:28:07.658Z",
+    "elapsedSeconds": 233.7
+  }
+}

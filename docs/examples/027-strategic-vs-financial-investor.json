@@ -1,0 +1,25 @@
+{
+  "id": 27,
+  "title": "Strategic vs Financial Investor",
+  "slug": "strategic-vs-financial-investor",
+  "category": "fundraising",
+  "tags": [
+    "term-sheet",
+    "strategic",
+    "google-ventures",
+    "negotiation"
+  ],
+  "context": "Two term sheets on the table, one from a strategic corporate VC",
+  "prompt": "We have two term sheets: $4M from a traditional VC at $20M pre, and $3M from Google Ventures at $18M pre with a partnership agreement. Which do I take?",
+  "response": "Okay, this is a big decision. Let's break it down.\n\nTo give you the most useful advice, I need a bit more detail, especially around that partnership agreement.\n\n1.  What does the \"partnership agreement\" with Google Ventures specifically involve? Is it a concrete go-to-market channel, preferred vendor status, co-marketing, access to Google Cloud credits, engineering support, or something else? How much revenue or strategic value do you estimate it could generate?\n2.  What are your company's top 2-3 strategic priorities right now? (e.g., maximize valuation, accelerate product development, gain market share, secure a strategic exit, leverage partnerships for distribution).\n3.  What are the key non-valuation terms of each term sheet? (e.g., liquidation preferences, board seats, investor rights, pro-rata rights). Are they largely similar, or are there significant differences?\n\nOnce I have a better handle on these, we can use a Decision Matrix and Cost-Benefit Analysis to systematically compare the options.",
+  "metadata": {
+    "model": "google/gemini-2.5-flash",
+    "tokensIn": 4200,
+    "tokensOut": 227,
+    "frameworks": 0,
+    "searches": 0,
+    "filesRead": 0,
+    "generatedAt": "2026-03-04T18:28:59.703Z",
+    "elapsedSeconds": 4.7
+  }
+}

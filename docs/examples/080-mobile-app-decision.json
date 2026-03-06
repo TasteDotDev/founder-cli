@@ -1,0 +1,25 @@
+{
+  "id": 80,
+  "title": "Mobile App Decision",
+  "slug": "mobile-app-decision",
+  "category": "product",
+  "tags": [
+    "mobile",
+    "pwa",
+    "native",
+    "resource-planning"
+  ],
+  "context": "Web app considering native mobile apps",
+  "prompt": "Our web app works but customers keep asking for a mobile app. We're 4 engineers. Building native iOS and Android feels like it would consume us. What's the move?",
+  "response": "This is a classic challenge for growing web apps with limited engineering resources. It sounds like you're trying to balance customer demand with the very real constraints of a 4-person engineering team. Building native iOS and Android apps from scratch is indeed a significant undertaking that could easily consume your team for a long time.\n\nLet's break this down using a Decision Matrix to compare your options and a Cost-Benefit Analysis to weigh the implications.\n\nHere are the main approaches you could consider for bringing your app to mobile, along with their core characteristics:\n\n1.  Native iOS & Android: Building separate apps using Swift/Kotlin.\n2.  Cross-Platform Frameworks: Using tools like React Native, Flutter, or Xamarin to write a single codebase that compiles to both iOS and Android.\n3.  Progressive Web App (PWA): Enhancing your existing web app to behave more like a native app (installable, offline capabilities, push notifications).\n\nTo help you think through this, I'll apply a Decision Matrix.\n\nOkay, this is a classic \"build vs. buy\" or \"how to build\" dilemma when customer demand meets resource constraints. Your concern about native development consuming your 4-engineer team is very valid.\n\nLet's use a Decision Matrix to systematically compare your options for bringing your web app to mobile. This will help us weigh the pros and cons against what matters most to your business.\n\n### The Decision: How to deliver a mobile experience to customers with a 4-engineer team.\n\nHere are the three primary options we'll compare:\n\n1.  Native iOS & Android Development: Building separate, dedicated applications for each platform using their respective programming languages (Swift/Kotlin).\n2.  Cross-Platform Frameworks (e.g., React Native, Flutter): Using a single codebase that can be deployed to both iOS and Android, often with a \"write once, run anywhere\" promise.\n3.  Progressive Web App (PWA): Enhancing your existing web application to provide a native-like experience directly through the browser, including installability, offline access, and push notifications.\n\nTo make this matrix useful, we need to define the criteria that are most important to your business and team, and how much weight each criterion carries.\n\nWhat are the 5-8 most important criteria for you when evaluating these options?\n\nThink about things like:\n*   Development Cost/Time: How quickly can we get something out? How much will it cost in engineering hours?\n*   Performance/User Experience: How smooth and responsive does the app need to be?\n*   Maintenance Burden: How much ongoing effort will it take to support?\n*   Access to Native Features: Do you need deep integration with phone hardware (camera, GPS, etc.)?\n*   Hiring/Skillset: What skills does our current team have, or what would we need to hire for?\n*   Future Scalability: How easy will it be to add new features down the line?\n*   Distribution: How important is being in the App Store/Google Play Store?\n\nOnce we have your criteria, we'll assign a weight (out of 100%) to each, reflecting its importance.",
+  "metadata": {
+    "model": "google/gemini-2.5-flash",
+    "tokensIn": 9200,
+    "tokensOut": 716,
+    "frameworks": 1,
+    "searches": 0,
+    "filesRead": 0,
+    "generatedAt": "2026-03-04T19:04:04.041Z",
+    "elapsedSeconds": 10.1
+  }
+}

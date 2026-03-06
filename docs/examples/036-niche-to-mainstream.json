@@ -1,0 +1,25 @@
+{
+  "id": 36,
+  "title": "Niche to Mainstream Expansion",
+  "slug": "niche-to-mainstream",
+  "category": "growth",
+  "tags": [
+    "expansion",
+    "vertical-saas",
+    "fitness",
+    "competition"
+  ],
+  "context": "Vertical SaaS for yoga studios growing beyond initial niche",
+  "prompt": "We're the #1 software for yoga studios (800 customers). We want to expand to all fitness studios but Mindbody owns that market. How do we expand without losing our niche?",
+  "response": "Okay, this is a classic challenge: how to expand from a strong niche into a broader, competitive market without losing what makes you special. You've got a great position as #1 in yoga studios, and Mindbody is a formidable incumbent in the wider fitness space.\n\nTo tackle this, we need to understand your current strengths, Mindbody's vulnerabilities, and the specific needs of the broader fitness market.\n\nHere are a few frameworks that can help us structure this thinking:\n\n1.  Competitive Moat: To understand what makes you #1 in yoga and where Mindbody's true defensibility lies. This helps us identify where you can truly compete.\n2.  Ansoff Matrix: To map out different growth strategies – from staying in your current market to developing new products or entering new markets. This will help us visualize the expansion options.\n3.  Strategy Canvas: To visually compare your offering against Mindbody's across key attributes, helping us spot areas for differentiation and potentially \"blue ocean\" opportunities.\n4.  Jobs To Be Done (JTBD): To deeply understand what fitness studios are really trying to achieve when they \"hire\" software, which might reveal underserved needs that Mindbody isn't addressing.\n\nLet's start by applying the Competitive Moat framework to understand your current position and Mindbody's.\n\nMy apologies! It seems I used an incorrect slug for the \"Competitive Moat\" framework. Let me quickly check the available frameworks in the 'strategy' category to get the right one.\n\nAh, found it! The correct slug for Competitive Moat is moat-analysis. My apologies for the mix-up.\n\nLet's re-apply the Competitive Moat Analysis framework to understand your current position and Mindbody's.\n\nOkay, let's dig into this with the Competitive Moat Analysis framework. To do this effectively, I need a bit more detail about your business and your perception of Mindbody.\n\nCould you tell me a bit more about:\n\n1.  Your Yoga Studio Software:\n    *   What specific features or aspects make you the \"#1 software for yoga studios\"? What do your 800 customers love most?\n    *   What's your typical customer retention rate?\n       Do you have any unique technology, data, or a particularly strong brand within the yoga niche* that makes you hard to replace?\n2.  Mindbody:\n    *   From your perspective, what are Mindbody's biggest strengths and weaknesses in the broader fitness market?\n    *   What do you believe are Mindbody's key competitive advantages (their \"moats\")?\n\nOnce I have this context, I can apply the framework to both your company and Mindbody, which will help us identify potential expansion strategies.",
+  "metadata": {
+    "model": "google/gemini-2.5-flash",
+    "tokensIn": 22900,
+    "tokensOut": 652,
+    "frameworks": 2,
+    "searches": 0,
+    "filesRead": 0,
+    "generatedAt": "2026-03-04T21:47:47.779Z",
+    "elapsedSeconds": 10.8
+  }
+}

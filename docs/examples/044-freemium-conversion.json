@@ -1,0 +1,25 @@
+{
+  "id": 44,
+  "title": "Freemium Conversion Optimization",
+  "slug": "freemium-conversion",
+  "category": "pricing",
+  "tags": [
+    "freemium",
+    "conversion",
+    "pricing-psychology",
+    "saas"
+  ],
+  "context": "Productivity app with 50K free users, 1.2% conversion to paid",
+  "prompt": "50K free users, 1.2% paid conversion, $12/mo price point. Industry benchmark is 3-5%. How do I double my conversion without crippling the free tier?",
+  "response": "Okay, I hear you. You've got a solid base of 50,000 free users, but your 1.2% conversion to paid is lagging behind the 3-5% industry benchmark. The goal is to double that conversion without gutting the free tier. That's a classic freemium challenge: finding the sweet spot where the free product provides enough value to attract, but the paid product offers compelling reasons to upgrade.\n\nTo tackle this, we need to understand what's currently driving (or not driving) that conversion. I'll use the Freemium Strategy framework to help us think through how to optimize your free and paid tiers, and the Value Proposition Canvas to ensure your paid offering truly resonates.\n\nLet's start with the Freemium Strategy framework. This will help us analyze your current tier structure and identify potential levers for improvement.\n\nMy apologies, it seems I made a mistake with the framework name. Let me check the available frameworks in the 'strategy' category to find the right one.\n\nMy apologies again. It seems I was looking for a framework that doesn't exist under that exact name. Given your problem, the Four Fits Growth Framework (to diagnose where the conversion is breaking down) and the Business Model Canvas (to analyze your value proposition and customer segments) would be good starting points.\n\nLet's start with the Four Fits Growth Framework. This will help us diagnose where the conversion is breaking down by looking at the alignment between your market, product, channel, and business model.\n\nOkay, let's apply the Four Fits Growth Framework to your situation. This will help us pinpoint where the disconnect might be happening between your free users and paid conversion.\n\nFirst, I need a bit more detail to apply this framework effectively. Could you tell me:\n\n*   Business Description: Briefly describe your product, who your target customer is, and what problem your product solves for them.\n*   Primary Growth Channels: How do you currently acquire your 50,000 free users? (e.g., organic search, social media, referrals, paid ads, etc.)",
+  "metadata": {
+    "model": "google/gemini-2.5-flash",
+    "tokensIn": 22600,
+    "tokensOut": 514,
+    "frameworks": 2,
+    "searches": 0,
+    "filesRead": 0,
+    "generatedAt": "2026-03-04T18:41:37.745Z",
+    "elapsedSeconds": 9
+  }
+}

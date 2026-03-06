@@ -1,0 +1,25 @@
+{
+  "id": 110,
+  "title": "Market Downturn Response",
+  "slug": "market-downturn-response",
+  "category": "decisions",
+  "tags": [
+    "downturn",
+    "cost-cutting",
+    "board",
+    "scenario-planning"
+  ],
+  "context": "VC funding dried up, growth targets unrealistic now",
+  "prompt": "The market turned. Our Series B investors want 3x growth but our pipeline dried up overnight. Do we cut costs aggressively or keep investing in growth?",
+  "response": "This is a tough spot, and it sounds like you're under a lot of pressure. The market turning and investors pushing for 3x growth while your pipeline is dry is a classic \"damned if you do, damned if you don't\" scenario.\n\nLet's break this down. The core question is whether to lean into survival (cost cuts) or double down on growth (investment), knowing the landscape has shifted. To make an informed call, we need to get a clearer picture of your current situation and the potential outcomes of each path.\n\nI'd suggest we look at this through a few lenses:\n\n1.  Decision Matrix: To compare the two main options (cut costs vs. invest in growth) against critical factors like runway, investor sentiment, and market opportunity.\n2.  Unit Economics: To understand if your current growth engine, even if stalled, is fundamentally sound. If it's not, throwing more money at it won't help.\n3.  Pre-Mortem: To imagine each strategy failing and work backward to identify what could go wrong and how to prevent it.\n\nBefore we dive into those, I need a bit more context to make this useful for your specific situation:\n\n*   What's your current monthly burn rate and how much cash runway do you have left? (e.g., \"$500K/month burn, 6 months runway\")\n*   What's your current ARR and average contract value (ACV)? (e.g., \"$10M ARR, $50K ACV\")\n*   What do you think specifically caused the pipeline to dry up overnight? (e.g., \"macroeconomic downturn,\" \"new competitor,\" \"product no longer solving a critical pain point\")\n*   Beyond \"3x growth,\" what are your Series B investors' other key expectations or concerns? (e.g., \"path to profitability,\" \"market share,\" \"specific product milestones\")\n\nOnce I have these, we can start applying the frameworks.",
+  "metadata": {
+    "model": "google/gemini-2.5-flash",
+    "tokensIn": 4200,
+    "tokensOut": 433,
+    "frameworks": 0,
+    "searches": 0,
+    "filesRead": 0,
+    "generatedAt": "2026-03-04T19:21:17.072Z",
+    "elapsedSeconds": 5.9
+  }
+}
